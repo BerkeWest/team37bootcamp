@@ -52,6 +52,8 @@ Team 37
       <td>Developer</td>
       <td>
         <a href="https://github.com/KAYA-Seferhan" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
+        <a href="https://www.linkedin.com/in/kaya-seferhan" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
+        <a href="https://www.instagram.com/kaya_seferhan" target="_blank"><img src="bootcampFiles/icons/instagram.png" width="20" height="20"/></a>
       </td>
     </tr>
   </table>
