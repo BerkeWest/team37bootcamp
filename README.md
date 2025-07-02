@@ -30,7 +30,7 @@ Team 37
       </td>
     </tr>
     <tr>
-      <td><img src="bootcampFiles/team/eno.jpg" width="50" height="50" /></td>
+      <td><img src="bootcampFiles/team/eno.JPG" width="50" height="50" /></td>
       <td>Esma Nisa Orta</td>
       <td>Developer</td>
       <td>
