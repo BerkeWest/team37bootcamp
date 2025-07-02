@@ -1,5 +1,5 @@
 # Team Name
-(Undecided)
+Team 37
 
 # Team Members
 <table>
@@ -55,7 +55,7 @@
   </table>
   
   # Product Description
-  (undecided) is a single-player adventure RPG game. In a world full of monsters, you earn your living by hunting and selling the loot of these monsters. With the money you earn by selling these loots, you can upgrade your stats, weapons, and buy items that will assist you in hunting down more and stronger monsters for better loot.
+  It is a single-player adventure RPG game. In a world full of monsters, you earn your living by hunting and selling the loot of these monsters. With the money you earn by selling these loots, you can upgrade your stats, weapons, and buy items that will assist you in hunting down more and stronger monsters for better loot.
 
   # Product Features
   * 3D
