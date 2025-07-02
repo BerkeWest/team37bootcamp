@@ -10,13 +10,13 @@
       <th>Socials</th>
     </tr>
     <tr>
-      <td><img src="" width="50" height="50" /></td>
+      <td><img src="bootcampFiles/team/bb.jpg" width="50" height="50" /></td>
       <td>Berke Batı</td>
       <td>Scrum Master</td>
       <td>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
+        <a href="https://github.com/BerkeWest" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
+        <a href="https://www.linkedin.com/in/berke-bat%C4%B1-7b7a341b9/" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
+        <a href="https://www.instagram.com/berkebati/" target="_blank"><img src="bootcampFiles/icons/instagram.png" width="20" height="20"/></a>
       </td>
     </tr>
     <tr>
@@ -24,9 +24,9 @@
       <td>Mehmet Akif Genç</td>
       <td>Product Owner</td>
       <td>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
+        <a href="https://github.com/MAG61" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
+        <a href="" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
+        <a href="" target="_blank"><img src="bootcampFiles/icons/instagram.png" width="20" height="20"/></a>
       </td>
     </tr>
     <tr>
@@ -34,9 +34,9 @@
       <td>Esma Nisa Orta</td>
       <td>Developer</td>
       <td>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
+        <a href="https://github.com/esmanisaorta" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
+        <a href="" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
+        <a href="" target="_blank"><img src="bootcampFiles/icons/instagram.png" width="20" height="20"/></a>
       </td>
     </tr>
     <tr>
@@ -44,9 +44,9 @@
       <td>Sude Güler</td>
       <td>Developer</td>
       <td>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
+        <a href="https://github.com/sude000" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
+        <a href="" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
+        <a href="" target="_blank"><img src="bootcampFiles/icons/instagram.png" width="20" height="20"/></a>
       </td>
     </tr>
     <tr>
@@ -54,9 +54,9 @@
       <td>Seferhan Kaya</td>
       <td>Developer</td>
       <td>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="" width="20" height="20"/></a>
+        <a href="https://github.com/KAYA-Seferhan" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
+        <a href="" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
+        <a href="" target="_blank"><img src="bootcampFiles/icons/instagram.png" width="20" height="20"/></a>
       </td>
     </tr>
   </table>
