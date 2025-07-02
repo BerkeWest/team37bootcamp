@@ -25,8 +25,6 @@
       <td>Product Owner</td>
       <td>
         <a href="https://github.com/MAG61" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="bootcampFiles/icons/instagram.png" width="20" height="20"/></a>
       </td>
     </tr>
     <tr>
@@ -36,7 +34,6 @@
       <td>
         <a href="https://github.com/esmanisaorta" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
         <a href="https://www.linkedin.com/in/esma-nisa-orta/" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="bootcampFiles/icons/instagram.png" width="20" height="20"/></a>
       </td>
     </tr>
     <tr>
@@ -45,8 +42,6 @@
       <td>Developer</td>
       <td>
         <a href="https://github.com/sude000" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="bootcampFiles/icons/instagram.png" width="20" height="20"/></a>
       </td>
     </tr>
     <tr>
@@ -55,8 +50,6 @@
       <td>Developer</td>
       <td>
         <a href="https://github.com/KAYA-Seferhan" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="bootcampFiles/icons/instagram.png" width="20" height="20"/></a>
       </td>
     </tr>
   </table>
