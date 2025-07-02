@@ -25,10 +25,12 @@ Team 37
       <td>Product Owner</td>
       <td>
         <a href="https://github.com/MAG61" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
+        <a href="https://www.linkedin.com/in/mehmet-akif-gen%C3%A7-038393333/" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
+        <a href="https://mag61.itch.io/" target="_blank"><img src="bootcampFiles/icons/itch.png" width="20" height="20"/></a>
       </td>
     </tr>
     <tr>
-      <td><img src="" width="50" height="50" /></td>
+      <td><img src="bootcampFiles/team/eno.jpg" width="50" height="50" /></td>
       <td>Esma Nisa Orta</td>
       <td>Developer</td>
       <td>
