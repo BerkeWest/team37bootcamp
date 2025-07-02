@@ -35,7 +35,7 @@
       <td>Developer</td>
       <td>
         <a href="https://github.com/esmanisaorta" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
-        <a href="" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
+        <a href="https://www.linkedin.com/in/esma-nisa-orta/" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
         <a href="" target="_blank"><img src="bootcampFiles/icons/instagram.png" width="20" height="20"/></a>
       </td>
     </tr>
@@ -62,11 +62,16 @@
   </table>
   
   # Product Description
-  (undecided) is a looter single-player adventure RPG game. In a world full of monsters, you earn your living by hunting and selling the loot of these monsters. With the money you earn by selling these loots, you can upgrade your stats, weapons, and buy items that will assist you in hunting down more and stronger monsters for better loot.
+  (undecided) is a single-player adventure RPG game. In a world full of monsters, you earn your living by hunting and selling the loot of these monsters. With the money you earn by selling these loots, you can upgrade your stats, weapons, and buy items that will assist you in hunting down more and stronger monsters for better loot.
+
+  # Product Features
+  * 3D
+  * Single-player
+  * Looter
+  * Adventure RPG 
 
 <details>
     <summary><h1>Sprint 1</h1></summary>
-
 
   <details>
     <summary><h3>Sprint 1 - Game Screenshots</h3></summary>
@@ -119,7 +124,6 @@
   </table>
   </details>   
 
-
   <details>
     <summary><h3>Sprint 1 - Sprint Board Update Screenshots</h3></summary>
     <img src="" style="max-width: 100%; height: auto;">
@@ -130,13 +134,12 @@
     <img src="" style="max-width: 100%; height: auto;">
   </details>
 
-
   - **Sprint Notes**:
     - ...
-  - **Expected point completion within Sprint**: 200 points
-  - **Point Completion Logic**: 
+  - **Expected point completion within Sprint:** 50 points
+  - **Point Completion Logic:** 
   - **Daily Scrum**: 
-  - **Product Backlog URL: 
+  - **Product Backlog URL:** 
   - **Sprint Review:**
     - ...
 
