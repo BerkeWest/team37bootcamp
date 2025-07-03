@@ -44,6 +44,7 @@ Team 37
       <td>Developer</td>
       <td>
         <a href="https://github.com/sude000" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
+        <a href="https://www.linkedin.com/in/fatma-sude-g%C3%BCler/" target="_blank"><img src="bootcampFiles/icons/linkedin.png" width="20" height="20"/></a>
       </td>
     </tr>
     <tr>
