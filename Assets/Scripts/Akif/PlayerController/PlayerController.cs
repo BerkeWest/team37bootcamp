@@ -17,6 +17,18 @@ public class PlayerController : MonoBehaviour
     private float coyoteTimeCounter = 0f;
     private float jumpBufferCounter = 0f;
 
+    [Header("Dash Settings")]
+    public float dashSpeed = 40f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1.0f;
+    public AnimationCurve dashSpeedCurve = AnimationCurve.Linear(0, 1, 1, 0.5f);
+
+    private bool isDashing = false;
+    private float dashTimer = 0f;
+    private float dashCooldownTimer = 0f;
+    private Vector3 dashDirection = Vector3.zero;
+
+
     [Header("Gravity Settings")]
     public float normalGravity = -20f;
     public float gravity = -20f;
@@ -56,6 +68,9 @@ public class PlayerController : MonoBehaviour
 
         CheckJumpInputBuffer();
         HandleJump();
+
+        HandleDashInput();
+        HandleDash();
 
         ApplyGravity();
         HandleRotation();
@@ -130,9 +145,61 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void HandleDashInput()
+    {
+        dashCooldownTimer -= Time.deltaTime;
+
+        if (isDashing) return;
+
+        if (m_inputManager.GetDashInput() && dashCooldownTimer <= 0f)
+        {
+            StartDash();
+        }
+    }
+
+    void StartDash()
+    {
+        isDashing = true;
+        dashTimer = dashDuration;
+        dashCooldownTimer = dashCooldown;
+
+        Vector3 moveInput = new Vector3(currentSmoothedInput.x, 0, currentSmoothedInput.y);
+        if (moveInput.magnitude > 0.1f)
+        {
+            dashDirection = moveInput.normalized;
+        }
+        else
+        {
+            dashDirection = transform.forward;
+        }
+
+        velocity.y = 0;
+    }
+
+    void HandleDash()
+    {
+        if (!isDashing) return;
+
+        dashTimer -= Time.deltaTime;
+
+        float dashProgress = 1f - (dashTimer / dashDuration);
+        float curveValue = dashSpeedCurve.Evaluate(dashProgress);
+
+        Vector3 dashMove = dashDirection * dashSpeed * curveValue;
+
+        controller.Move(dashMove * Time.deltaTime);
+
+        if (dashTimer <= 0f)
+        {
+            isDashing = false;
+        }
+    }
+
 
     void ApplyGravity()
     {
+        if (isDashing) return;
+
         if (velocity.y > 2f)
         {
             gravity = normalGravity * risingGravityMultiplier;
@@ -173,4 +240,20 @@ public class PlayerController : MonoBehaviour
         return Mathf.Clamp01(progress);
     }
 
+    #region Public Methods
+    public bool IsDashing()
+    {
+        return isDashing;
+    }
+
+    public bool IsGrounded()
+    {
+        return isGrounded;
+    }
+
+    public bool IsJumping()
+    {
+        return !isGrounded && Mathf.Abs(velocity.y) > 0.01f;
+    }
+    #endregion
 }
