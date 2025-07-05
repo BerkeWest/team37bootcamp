@@ -52,9 +52,11 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController controller;
     private InputManager m_inputManager;
+    private Animator m_animator;
 
     void Start()
     {
+        m_animator = GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
         m_inputManager = InputManager.Instance;
     }
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
+        m_animator.SetBool("isGroundedBool", isGrounded);
     }
 
 
@@ -119,6 +122,7 @@ public class PlayerController : MonoBehaviour
         if (move.magnitude > 1f) move.Normalize();
 
         controller.Move(move * moveSpeed * Time.deltaTime);
+        m_animator.SetFloat("speedFloat", controller.velocity.magnitude);
 
     }
 
@@ -139,6 +143,7 @@ public class PlayerController : MonoBehaviour
     {
         if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
         {
+            m_animator.SetTrigger("jumpTrigger");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * normalGravity);
             jumpBufferCounter = 0f;
             coyoteTimeCounter = 0f;
@@ -174,6 +179,8 @@ public class PlayerController : MonoBehaviour
         }
 
         velocity.y = 0;
+
+        m_animator.SetTrigger("dashTrigger");
     }
 
     void HandleDash()
@@ -192,6 +199,7 @@ public class PlayerController : MonoBehaviour
         if (dashTimer <= 0f)
         {
             isDashing = false;
+            m_animator.SetBool("isDashingBool", false);
         }
     }
 
