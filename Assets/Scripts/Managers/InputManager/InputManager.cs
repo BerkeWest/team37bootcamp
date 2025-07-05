@@ -33,10 +33,11 @@ public class InputManager : MonoBehaviour
         m_dashAction = m_playerInput.actions["Dash"];
     }
 
+    #region Public Methods
     public Vector2 GetMoveInput() { return m_moveAction.ReadValue<Vector2>(); }
 
     public bool GetJumpInput() { return m_jumpAction.triggered; }
 
     public bool GetDashInput() { return m_dashAction.triggered; }
-
+    #endregion
 }
