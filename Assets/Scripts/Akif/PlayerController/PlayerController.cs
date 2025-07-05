@@ -5,27 +5,41 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 15f;
-    public float jumpHeight = 2f;
-    public float gravity = -9.81f * 3;
     public float rotationDamping = 0.025f;
+    private Vector3 velocity;
 
-    [Header("Smoothing Settings")]
+    [Header("Jump Settings")]
+    public float jumpHeight = 2f;
+    private bool isGrounded;
+    public float coyoteTime = 0.15f;
+    public float jumpBufferTime = 0.15f;
+
+    private float coyoteTimeCounter = 0f;
+    private float jumpBufferCounter = 0f;
+
+    [Header("Gravity Settings")]
+    public float normalGravity = -20f;
+    public float gravity = -20f;
+
+    public float risingGravityMultiplier = 1f;
+    public float glidingGravityMultiplier = 0.75f;
+    public float fallingGravityMultiplier = 2f;
+
+
+    [Header("Input Smoothing Settings")]
     public float accelerationTime = 0.2f;
     public float decelerationTime = 0.2f;
     public AnimationCurve inputCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    private Vector2 currentSmoothedInput = Vector2.zero;
 
-    private CharacterController controller;
-    private Vector3 velocity;
-    private bool isGrounded;
-
-    private InputManager m_inputManager;
-
-    // Progression state per axis
     private float progressX = 0f;
     private float progressZ = 0f;
 
     private int targetX = 0;
     private int targetZ = 0;
+
+    private CharacterController controller;
+    private InputManager m_inputManager;
 
     void Start()
     {
@@ -35,43 +49,110 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Ground check
+        GroundCheck();
+
+        HandleInputSmoothing();
+        HandleMovement();
+
+        CheckJumpInputBuffer();
+        HandleJump();
+
+        ApplyGravity();
+        HandleRotation();
+    }
+
+
+    void GroundCheck()
+    {
         isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
 
-        // Raw input from InputManager
-        Vector2 moveInput = m_inputManager.GetMoveInput();
-        targetX = Mathf.RoundToInt(Mathf.Clamp(moveInput.x, -1f, 1f));
-        targetZ = Mathf.RoundToInt(Mathf.Clamp(moveInput.y, -1f, 1f));
+        if (isGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+    }
 
-        // Update progression values
+
+    void HandleInputSmoothing()
+    {
+        targetX = Mathf.RoundToInt(m_inputManager.GetMoveInput().x);
+        targetZ = Mathf.RoundToInt(m_inputManager.GetMoveInput().y);
+
         progressX = UpdateProgress(progressX, targetX != 0, accelerationTime, decelerationTime);
         progressZ = UpdateProgress(progressZ, targetZ != 0, accelerationTime, decelerationTime);
 
-        // Evaluate AnimationCurve
-        float smoothX = inputCurve.Evaluate(progressX) * targetX;
-        float smoothZ = inputCurve.Evaluate(progressZ) * targetZ;
+        float targetSmoothX = inputCurve.Evaluate(progressX) * targetX;
+        float targetSmoothZ = inputCurve.Evaluate(progressZ) * targetZ;
 
-        // Movement vector
-        Vector3 move = new Vector3(smoothX, 0, smoothZ);
+        Vector2 targetInput = new Vector2(targetSmoothX, targetSmoothZ);
+        //currentSmoothedInput = Vector2.MoveTowards(currentSmoothedInput, targetInput, Time.deltaTime / Mathf.Max(0.0001f, decelerationTime));
+        currentSmoothedInput = Vector2.Lerp(currentSmoothedInput, targetInput, Time.deltaTime / decelerationTime);
+
+    }
+
+    void HandleMovement()
+    {
+        Vector3 move = new Vector3(currentSmoothedInput.x, 0, currentSmoothedInput.y);
         if (move.magnitude > 1f) move.Normalize();
 
         controller.Move(move * moveSpeed * Time.deltaTime);
 
-        // Jump
-        if (m_inputManager.GetJumpInput() && isGrounded)
+    }
+
+    void CheckJumpInputBuffer()
+    {
+        if (m_inputManager.GetJumpInput())
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+    }
+
+
+    void HandleJump()
+    {
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * normalGravity);
+            jumpBufferCounter = 0f;
+            coyoteTimeCounter = 0f;
+        }
+    }
+
+
+    void ApplyGravity()
+    {
+        if (velocity.y > 2f)
+        {
+            gravity = normalGravity * risingGravityMultiplier;
+        }
+        else if (velocity.y < -2f)
+        {
+            gravity = normalGravity * fallingGravityMultiplier;
+        }
+        else
+        {
+            gravity = normalGravity * glidingGravityMultiplier;
         }
 
-        // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
 
-        // Rotation
+    void HandleRotation()
+    {
+        Vector3 move = new Vector3(currentSmoothedInput.x, 0, currentSmoothedInput.y);
         if (move != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
@@ -79,9 +160,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Updates the progression value (0..1) for input smoothing.
-    /// </summary>
     float UpdateProgress(float progress, bool accelerating, float accelTime, float decelTime)
     {
         if (accelerating)
@@ -94,4 +172,5 @@ public class PlayerController : MonoBehaviour
         }
         return Mathf.Clamp01(progress);
     }
+
 }
