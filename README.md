@@ -104,7 +104,7 @@ Team 37
     <img src="bootcampFiles/sprint1/tasks/1.jpg" style="max-width: 100%; height: auto;">
     <img src="bootcampFiles/sprint1/tasks/2.jpg" style="max-width: 100%; height: auto;">
     <img src="bootcampFiles/sprint1/tasks/3.jpg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprint1/tasks/4.jpg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/4.jpeg" style="max-width: 100%; height: auto;">
 
   </details>
 
