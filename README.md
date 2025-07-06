@@ -85,9 +85,9 @@ Team 37
       <td colspan="3" style="text-align: center;"><h2>Character</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/Sprint1_CharacterAnimations1-.gif" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/Sprint1_CharacterMovement1.gif" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/Sprint1_PlayerMovementSC.png" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
       <td colspan="2" style="text-align: center;"><h2>Inventory</h2></td>
