@@ -124,24 +124,37 @@ Team 37
 
   <details>
     <summary><h3>Sprint 1 - Sprint Board Update Screenshots</h3></summary>
-    <img src="" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/1.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/2.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/3.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/4.png" style="max-width: 100%; height: auto;">
+
   </details>
 
   <details>
-    <summary><h3>Sprint 1 - Burndown Chart</h3></summary>
-    <img src="" style="max-width: 100%; height: auto;">
+    <summary><h3>Sprint 1 - General Tasks and Completion Rate</h3></summary>
+    <img src="bootcampFiles/sprint1/s1general.png" style="max-width: 100%; height: auto;">
   </details>
 
   - **Sprint Notes**:
-    - ...
+    - Decided to use `WhatsApp` and `Google Meet` for general communication and meetings.
+    - Decided to use `Notion` to visualise the sprint progress.
+    - Came up with the project idea.
+    - Decided on a majority of asset packs to use.
+    - Divided the tasks among members based on their skill level and their schedule.
   - **Expected point completion within Sprint:** 50 points
-  - **Point Completion Logic:** 
-  - **Daily Scrum**: 
-  - **Product Backlog URL:** 
+  - **Point Completion Logic:** Every general task has some sub-tasks. We point tasks from 1 to 10 based on how hard or time-consuming they are. Each member gets a task based on their schedule and skill.
   - **Sprint Review:**
-    - ...
+    - Lost a lot of valuable time during the first week of the bootcamp while trying to build a system and came up with the project idea.
+    - Mehmet made progress on the character with the controller and animations.
+    - Sude made progress on the inventory system.
+    - Berke tested the assets and drafted map ideas.
+    - Overall, scheduling conflicts and communication problems cost us a bunch of valuable time, which turned into smaller progress. 
 
   - **Sprint Retrospective:**
-    - ...
+    - We need to communicate more with each other.
+    - We need to be more responsible.
+    - We must adapt to the `Notion` interface.
+    - We need to complete as many tasks as we can to make up for our loss in Sprint 1.
 
   </details>
