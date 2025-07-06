@@ -75,9 +75,11 @@ Team 37
     <summary><h3>Sprint 1 - Game Screenshots</h3></summary>
   <table style="width: 100%;">
     <tr>
-      <td colspan="2" style="text-align: center;"><h2>Main Menu</h2></td>
+      <td colspan="4" style="text-align: center;"><h2>Main Menu</h2></td>
     </tr>
     <tr>
+      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
       <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
       <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
     </tr>
