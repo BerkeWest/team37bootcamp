@@ -78,7 +78,7 @@ Team 37
       <td colspan="4" style="text-align: center;"><h2>Main Menu</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/mainmenu.png" style="max-width: 100%; height: auto;"></td>
       <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
       <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
       <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
