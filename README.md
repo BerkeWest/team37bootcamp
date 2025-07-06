@@ -75,47 +75,26 @@ Team 37
     <summary><h3>Sprint 1 - Game Screenshots</h3></summary>
   <table style="width: 100%;">
     <tr>
-      <td colspan="4" style="text-align: center;"><h2>Main Menu</h2></td>
+      <td colspan="2" style="text-align: center;"><h2>Main Menu</h2></td>
     </tr>
     <tr>
       <td style="width: 25%;"><img src="bootcampFiles/gameSS/mainmenu.png" style="max-width: 100%; height: auto;"></td>
       <td style="width: 25%;"><img src="bootcampFiles/gameSS/mainmenubasic (2).png" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
-      <td colspan="4" style="text-align: center;"><h2>Character</h2></td>
+      <td colspan="3" style="text-align: center;"><h2>Character</h2></td>
     </tr>
     <tr>
       <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
       <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
       <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
-      <td colspan="4" style="text-align: center;"><h2>Map Content</h2></td>
+      <td colspan="2" style="text-align: center;"><h2>Inventory</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-    </tr>
-    <tr>
-      <td colspan="4" style="text-align: center;"><h2>Inventory</h2></td>
-    </tr>
-    <tr>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-    </tr>
-    <tr>
-      <td colspan="4" style="text-align: center;"><h2>Shaders</h2></td>
-    </tr>
-    <tr>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/inventory1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/inventory2.png" style="max-width: 100%; height: auto;"></td>
     </tr>
   </table>
   </details>   
