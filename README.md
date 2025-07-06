@@ -101,16 +101,16 @@ Team 37
 
   <details>
     <summary><h3>Sprint 1 - Sprint Board Update Screenshots</h3></summary>
-    <img src="bootcampFiles/sprint1/tasks/1.jpg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprint1/tasks/2.jpg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprint1/tasks/3.jpg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/1.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/2.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/3.jpeg" style="max-width: 100%; height: auto;">
     <img src="bootcampFiles/sprint1/tasks/4.jpeg" style="max-width: 100%; height: auto;">
 
   </details>
 
   <details>
     <summary><h3>Sprint 1 - General Tasks and Completion Rates</h3></summary>
-    <img src="bootcampFiles/sprint1/s1general.jpg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/s1general.jpeg" style="max-width: 100%; height: auto;">
   </details>
 
   - **Sprint Notes**:
