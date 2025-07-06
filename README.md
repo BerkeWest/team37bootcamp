@@ -48,7 +48,7 @@ Team 37
       </td>
     </tr>
     <tr>
-      <td><img src="" width="50" height="50" /></td>
+      <td><img src="bootcampFiles/team/sk.jpg" width="50" height="50" /></td>
       <td>Seferhan Kaya</td>
       <td>Developer</td>
       <td>
