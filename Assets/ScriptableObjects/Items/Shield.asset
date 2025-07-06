@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ae9a4dc3ddd0e41b74a798e1f7aee5, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 7933386532733074183, guid: 0ed83da882f546f4dbfc6f91903c4d40, type: 3}
   type: 1
   description: A shield for defending.
   atkBonus: 0

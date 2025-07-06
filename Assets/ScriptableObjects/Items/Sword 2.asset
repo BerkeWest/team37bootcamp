@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ae9a4dc3ddd0e41b74a798e1f7aee5, type: 3}
   m_Name: Sword 2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 7735664977912329648, guid: 4205ca46b9d602e4eadc1f2c6107eef9, type: 3}
   type: 1
   description: "A sword for slashing and stabbing. \t"
   atkBonus: 20

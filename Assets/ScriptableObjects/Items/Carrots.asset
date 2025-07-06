@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2891a5d8565209f47919df1d7af10cd5, type: 3}
   m_Name: Carrots
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2568794277496776351, guid: e80cadb2ba736d44a92dcb8000f1470a, type: 3}
   type: 0
   description: It may fall when you destroy the bushes. Increases your health by
     +5.
