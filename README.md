@@ -144,6 +144,7 @@ Team 37
     - Divided the tasks among members based on their skill level and their schedule.
   - **Expected point completion within Sprint:** 50 points
   - **Point Completion Logic:** Every general task has some sub-tasks. We point tasks from 1 to 10 based on how hard or time-consuming they are. Each member gets a task based on their schedule and skill.
+
   - **Sprint Review:**
     - Lost a lot of valuable time during the first week of the bootcamp while trying to build a system and came up with the project idea.
     - Mehmet made progress on the character with the controller and animations.
@@ -156,5 +157,13 @@ Team 37
     - We need to be more responsible.
     - We must adapt to the `Notion` interface.
     - We need to complete as many tasks as we can to make up for our loss in Sprint 1.
+
+  - **Main Menu Development:**
+    - Three UI panels (Main, Settings, Pause) have been created and controlled dynamically.
+    - Play button loads scenes using Unity's SceneManager.
+    - Continue button enabled conditionally via PlayerPrefs; currently loads placeholder scenes.
+    - Scene transitions tested using placeholder scenes; all necessary scenes added to Build Settings.
+    - Settings panel UI is ready but audio/resolution controls pending.
+    - Pause menu not yet implemented; planned for upcoming sprints.
 
   </details>
