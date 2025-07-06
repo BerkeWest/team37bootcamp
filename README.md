@@ -79,7 +79,7 @@ Team 37
     </tr>
     <tr>
       <td style="width: 25%;"><img src="bootcampFiles/gameSS/mainmenu.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/gameSS/mainmenu (2).png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/mainmenubasic (2).png" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
       <td colspan="4" style="text-align: center;"><h2>Character</h2></td>
