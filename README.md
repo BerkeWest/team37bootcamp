@@ -20,7 +20,7 @@ Team 37
       </td>
     </tr>
     <tr>
-      <td><img src="" width="50" height="50" /></td>
+      <td><img src="bootcampFiles/team/mag.jpeg" width="50" height="50" /></td>
       <td>Mehmet Akif Genç</td>
       <td>Product Owner</td>
       <td>
@@ -39,8 +39,8 @@ Team 37
       </td>
     </tr>
     <tr>
-      <td><img src="" width="50" height="50" /></td>
-      <td>Sude Güler</td>
+      <td><img src="bootcampFiles/team/fsg.jpg" width="50" height="50" /></td>
+      <td>Fatma Sude Güler</td>
       <td>Developer</td>
       <td>
         <a href="https://github.com/sude000" target="_blank"><img src="bootcampFiles/icons/github.png" width="20" height="20"/></a>
