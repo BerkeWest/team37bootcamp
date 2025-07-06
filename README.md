@@ -93,8 +93,8 @@ Team 37
       <td colspan="2" style="text-align: center;"><h2>Inventory</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/inventory1.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/inventory2.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
     </tr>
   </table>
   </details>   
