@@ -144,3 +144,71 @@ Team 37
     - Pause menu not yet implemented; planned for upcoming sprints.
 
   </details>
+
+<details>
+    <summary><h1>Sprint 2</h1></summary>
+
+  <details>
+    <summary><h3>Sprint 2 - Game Screenshots</h3></summary>
+  <table style="width: 100%;">
+    <tr>
+      <td colspan="2" style="text-align: center;"><h2>Main Menu</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/mainmenu.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/mainmenubasic (2).png" style="max-width: 100%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: center;"><h2>Character</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/Sprint1_CharacterAnimations1-.gif" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/Sprint1_CharacterMovement1.gif" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/Sprint1_PlayerMovementSC.png" style="max-width: 100%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;"><h2>Inventory</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;"><h2>Map</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
+    </tr>
+  </table>
+  </details>   
+
+  <details>
+    <summary><h3>Sprint 2 - Sprint Board Update Screenshots</h3></summary>
+    <img src="bootcampFiles/sprint1/tasks/1.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/2.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/3.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/4.jpeg" style="max-width: 100%; height: auto;">
+
+  </details>
+
+  <details>
+    <summary><h3>Sprint 2 - General Tasks and Completion Rates</h3></summary>
+    <img src="bootcampFiles/sprint1/s1general.jpeg" style="max-width: 100%; height: auto;">
+  </details>
+
+  - **Sprint Notes**:
+    - 
+
+  - **Sprint Review:**
+    - 
+
+  - **Sprint Retrospective:**
+    - 
+
+  - **Main Menu Development:**
+    - 
+
+  </details>
+
+
