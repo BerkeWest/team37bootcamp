@@ -204,13 +204,16 @@ Team 37
   - **Point Completion Logic:** Every general task has some sub-tasks. We point tasks from 1 to 10 based on how hard or time-consuming they are. Each member gets a task based on their schedule and skill.
 
   - **Sprint Review:**
-    - 
+    - Due to pre-determined vacation plans and work/internship conflicts, we lost some time and couldn't finish every task we wanted to.
+    - Berke created our map which has a bunch of features and improving. We could the map and its features to create more maps for the map pool.
+    - Mehmet shşfted the character controller to the State Pattern to better suit our development.
+    - Overall, we did reach our point milestone, but we could have made even more progress. We need to be more responsible with the development of our project and try our best to prioritize the essential tasks to deliver a playable game at the end of the bootcamp.
 
   - **Sprint Retrospective:**
     - We need to make more time for the bootcamp.
     - We need to prioritize some tasks over others to make sure we deliver a playable game by the end of bootcamp.
     - We need to be more organized.
-    - We need to make sure what type of structure to use before we start the development to make sure not to lose time on same tasks.
+    - We need to make sure what type of structure to use before we start the development, to make sure not to lose time on the same tasks.
 
   - **State Pattern Development:**
     - For the character controller, we've transitioned from a single class to a State Pattern structure.
