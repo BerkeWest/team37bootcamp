@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     private InputAction m_moveAction;
     private InputAction m_jumpAction;
     private InputAction m_dashAction;
+    private InputAction m_attackAction;
 
     public static InputManager Instance { get; private set; }
 
@@ -31,6 +32,7 @@ public class InputManager : MonoBehaviour
         m_moveAction = m_playerInput.actions["Move"];
         m_jumpAction = m_playerInput.actions["Jump"];
         m_dashAction = m_playerInput.actions["Dash"];
+        m_attackAction = m_playerInput.actions["Attack"];
     }
 
     #region Public Methods
@@ -39,5 +41,7 @@ public class InputManager : MonoBehaviour
     public bool GetJumpInput() { return m_jumpAction.triggered; }
 
     public bool GetDashInput() { return m_dashAction.triggered; }
+
+    public bool GetAttackInput() { return m_attackAction.triggered; }
     #endregion
 }

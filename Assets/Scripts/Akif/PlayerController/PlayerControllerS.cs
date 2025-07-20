@@ -19,12 +19,16 @@ public class PlayerControllerS : MonoBehaviour
     public float dashCooldown = 1.0f;
     public AnimationCurve dashSpeedCurve = AnimationCurve.Linear(0, 1, 1, 0.5f);
 
+    [Header("Attack Settings")]
+    public float attackDuration = 0.5f;
+    public float attackDmg = 10f;
+
     [Header("Gravity Settings")]
-    private float gravity = -20f;
     public float normalGravity = -20f;
     public float risingGravityMultiplier = 1f;
     public float glidingGravityMultiplier = 0.75f;
     public float fallingGravityMultiplier = 2f;
+    private float gravity = -20f;
 
     [Header("Input Smoothing Settings")]
     public float accelerationTime = 0.2f;
@@ -254,6 +258,12 @@ public class PlayerControllerS : MonoBehaviour
             progress -= Time.deltaTime / Mathf.Max(0.0001f, decelTime);
         }
         return Mathf.Clamp01(progress);
+    }
+
+    public void HandleAttack()
+    {
+        animator.SetTrigger("attackTrigger");
+
     }
 
     #region Public Methods

@@ -12,6 +12,11 @@ public class MoveState : PlayerState
             stateMachine.ChangeState(new DashState(player, stateMachine));
         }
 
+        if (player.inputManager.GetAttackInput())
+        {
+            stateMachine.ChangeState(new AttackState(player, stateMachine));
+        }
+
         if (player.inputManager.GetJumpInput())
         {
             player.jumpBufferCounter = player.jumpBufferTime;
