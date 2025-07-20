@@ -120,7 +120,7 @@ Team 37
     - Decided on a majority of asset packs to use.
     - Divided the tasks among members based on their skill level and their schedule.
   - **Expected point completion within Sprint:** 50 points
-  - **Actual point completion within Sprint:** 67 points
+  - **Actual point completion within Sprint:** 63 points
   - **Point Completion Logic:** Every general task has some sub-tasks. We point tasks from 1 to 10 based on how hard or time-consuming they are. Each member gets a task based on their schedule and skill.
 
   - **Sprint Review:**
