@@ -120,6 +120,7 @@ Team 37
     - Decided on a majority of asset packs to use.
     - Divided the tasks among members based on their skill level and their schedule.
   - **Expected point completion within Sprint:** 50 points
+  - **Actual point completion within Sprint:** 67 points
   - **Point Completion Logic:** Every general task has some sub-tasks. We point tasks from 1 to 10 based on how hard or time-consuming they are. Each member gets a task based on their schedule and skill.
 
   - **Sprint Review:**
@@ -155,50 +156,52 @@ Team 37
       <td colspan="2" style="text-align: center;"><h2>Main Menu</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/mainmenu.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/mainmenubasic (2).png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/Menu.jpg" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/MenuCode.jpg" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
       <td colspan="3" style="text-align: center;"><h2>Character</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/Sprint1_CharacterAnimations1-.gif" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/Sprint1_CharacterMovement1.gif" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/Sprint1_PlayerMovementSC.png" style="max-width: 100%; height: auto;"></td>
-    </tr>
-    <tr>
-      <td colspan="2" style="text-align: center;"><h2>Inventory</h2></td>
-    </tr>
-    <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/BaseState.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/Example_AttackState.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/WithoutStatePattern.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/WithStatePattern.png" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
       <td colspan="2" style="text-align: center;"><h2>Map</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/mapOnTop.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/MapWindowEnemy.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/MapDiningHall.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint2/gameSS/MapChest.png" style="max-width: 100%; height: auto;"></td>
     </tr>
   </table>
   </details>   
 
   <details>
     <summary><h3>Sprint 2 - Sprint Board Update Screenshots</h3></summary>
-    <img src="bootcampFiles/sprint2/tasks/1.jpeg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprint2/tasks/2.jpeg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprint2/tasks/3.jpeg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprint2/tasks/4.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint2/tasks/1.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint2/tasks/2.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint2/tasks/3.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint2/tasks/4.png" style="max-width: 100%; height: auto;">
 
   </details>
 
   <details>
     <summary><h3>Sprint 2 - General Tasks and Completion Rates</h3></summary>
-    <img src="bootcampFiles/sprint2/s1general.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint2/s2general.png" style="max-width: 100%; height: auto;">
   </details>
 
   - **Sprint Notes**:
-    - 
+    - Acknowledged our past mistakes in Sprint 1.
+    - Divided the remaining tasks within the team based on their schedule.
+    - Talked about how we need to approach this sprint and the next sprint.
+    - Talked through some ideas for the game name and lore.
+  - **Expected point completion within Sprint:** 100 points
+  - **Actual point completion within Sprint:** 112 points
+  - **Point Completion Logic:** Every general task has some sub-tasks. We point tasks from 1 to 10 based on how hard or time-consuming they are. Each member gets a task based on their schedule and skill.
 
   - **Sprint Review:**
     - 
@@ -206,7 +209,7 @@ Team 37
   - **Sprint Retrospective:**
     - 
 
-  - **Main Menu Development:**
+  - **State Pattern Development:**
     - 
 
   </details>
