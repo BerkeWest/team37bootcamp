@@ -207,10 +207,17 @@ Team 37
     - 
 
   - **Sprint Retrospective:**
-    - 
+    - We need to make more time for the bootcamp.
+    - We need to prioritize some tasks over others to make sure we deliver a playable game by the end of bootcamp.
+    - We need to be more organized.
+    - We need to make sure what type of structure to use before we start the development to make sure not to lose time on same tasks.
 
   - **State Pattern Development:**
-    - 
+    - For the character controller, we've transitioned from a single class to a State Pattern structure.
+    - Each movement state (Idle, Move, Jump, Attack) has been defined as a separate class, separating responsibilities.
+    - This makes transitions more manageable and increases code extensibility and testability.
+    - When adding a new behavior, the necessary actions can be performed simply by inheriting from the State base class.
+    - Using this system, we've added AttackState, allowing our character to inflict damage.
 
   </details>
 
