@@ -266,6 +266,14 @@ public class PlayerControllerS : MonoBehaviour
 
     }
 
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Enemy"))
+    //    {
+    //        other.GetComponent<EnemyController>().TakeDamage(attackDmg);
+    //    }
+    //}
+
     #region Public Methods
     public bool IsDashing()
     {
