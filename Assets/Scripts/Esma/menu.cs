@@ -21,7 +21,7 @@ public class menu : MonoBehaviour
     [Header("Settings Menu")]
     public Button backToMainButton;
     public Slider musicSlider;
-    public Slider sfxSlider;
+    public Slider soundSlider;
     public Toggle fullscreenToggle;
     
     [Header("Pause Menu")]
@@ -54,6 +54,11 @@ public class menu : MonoBehaviour
         
         PlayerPrefs.SetInt("SaveGame", 1);
         PlayerPrefs.Save();
+
+        int difficulty = PlayerPrefs.GetInt("Difficulty", 0);
+        
+        // Slider değerlerini PlayerPrefs'ten yükle
+        LoadSliderValues();
     }
     
     void Update()
@@ -74,6 +79,7 @@ public class menu : MonoBehaviour
     void SetupMenu()
     {
         // Menü panellerini başlangıçta gizle
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
         if (settingsPanel != null) settingsPanel.SetActive(false);
         if (pausePanel != null) pausePanel.SetActive(false);
         
@@ -122,6 +128,27 @@ public class menu : MonoBehaviour
         // Ayarlar menüsü
         if (backToMainButton != null)
             backToMainButton.onClick.AddListener(OnBackToMainButtonClicked);
+        
+        // Slider'ları ayarla
+        if (musicSlider != null)
+        {
+            musicSlider.onValueChanged.AddListener(OnMusicSliderChanged);
+            Debug.Log("Music slider listener added");
+        }
+        else
+        {
+            Debug.LogWarning("Music slider is null!");
+        }
+            
+        if (soundSlider != null)
+        {
+            soundSlider.onValueChanged.AddListener(OnSoundSliderChanged);
+            Debug.Log("Sound slider listener added");
+        }
+        else
+        {
+            Debug.LogWarning("Sound slider is null!");
+        }
         
         // Duraklat menüsü
         if (resumeButton != null)
@@ -239,7 +266,7 @@ public class menu : MonoBehaviour
         Debug.Log("Settings button clicked");
         if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
         if (settingsPanel != null) settingsPanel.SetActive(true);
-        
+
         isInSettings = true;
     }
     
@@ -260,7 +287,7 @@ public class menu : MonoBehaviour
     }
     
     // Ayarlar menüsü fonksiyonları
-    void OnBackToMainButtonClicked()
+    public void OnBackToMainButtonClicked()
     {
         ShowMainMenu();
     }
@@ -317,5 +344,85 @@ public class menu : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SaveGame();
+    }
+
+    public void OnGraphicsDropdownChanged(int value)
+    {
+        // value: seçilen grafik kalitesi (0, 1, 2, ...)
+        QualitySettings.SetQualityLevel(value);
+        Debug.Log("Graphics quality changed: " + value);
+    }
+
+    public void OnDifficultyDropdownChanged(int value)
+    {
+        // value: seçilen zorluk seviyesi (0: Kolay, 1: Orta, 2: Zor gibi)
+        PlayerPrefs.SetInt("Difficulty", value);
+        PlayerPrefs.Save();
+        Debug.Log("Difficulty changed: " + value);
+    }
+
+    public void OnMusicSliderChanged(float value)
+    {
+        // value: 0.0 - 1.0 arası müzik sesi
+        PlayerPrefs.SetFloat("MusicVolume", value);
+        PlayerPrefs.Save();
+        Debug.Log("Music volume changed: " + value);
+        // Burada müzik sesini ayarlayan AudioSource varsa onu da güncelleyebilirsin
+    }
+
+    public void OnSoundSliderChanged(float value)
+    {
+        // value: 0.0 - 1.0 arası ses seviyesi
+        PlayerPrefs.SetFloat("SoundVolume", value);
+        PlayerPrefs.Save();
+        Debug.Log("Sound volume changed: " + value);
+        // Burada ses efektini ayarlayan AudioSource varsa onu da güncelleyebilirsin
+    }
+
+    public void OnResolutionDropdownChanged(int value)
+    {
+        // Örnek: 0 = 1920x1080, 1 = 1280x720, 2 = 800x600
+        switch (value)
+        {
+            case 0:
+                Screen.SetResolution(1920, 1080, Screen.fullScreen);
+                break;
+            case 1:
+                Screen.SetResolution(1280, 720, Screen.fullScreen);
+                break;
+            case 2:
+                Screen.SetResolution(800, 600, Screen.fullScreen);
+                break;
+        }
+        Debug.Log("Resolution changed: " + Screen.currentResolution);
+    }
+    
+    void LoadSliderValues()
+    {
+        Debug.Log("Loading slider values...");
+        
+        // Müzik slider'ını yükle
+        if (musicSlider != null)
+        {
+            float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+            musicSlider.value = musicVolume;
+            Debug.Log("Music slider value set to: " + musicVolume);
+        }
+        else
+        {
+            Debug.LogWarning("Music slider is null in LoadSliderValues!");
+        }
+        
+        // Ses slider'ını yükle
+        if (soundSlider != null)
+        {
+            float soundVolume = PlayerPrefs.GetFloat("SoundVolume", 1.0f);
+            soundSlider.value = soundVolume;
+            Debug.Log("Sound slider value set to: " + soundVolume);
+        }
+        else
+        {
+            Debug.LogWarning("Sound slider is null in LoadSliderValues!");
+        }
     }
 }

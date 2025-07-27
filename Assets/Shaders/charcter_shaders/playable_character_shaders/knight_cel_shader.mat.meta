@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Shaders/Shader Graphs_playable_character_shader.mat.meta
 guid: edd80e7cae5d65a4d94b7a6c20f9b4ef
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
+========
+guid: 8f8606357442641459f558f46f4a9f9a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+>>>>>>>> Stashed changes:Assets/ScriptableObjects/Inventory/Player Tutorial Inventory.asset.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
