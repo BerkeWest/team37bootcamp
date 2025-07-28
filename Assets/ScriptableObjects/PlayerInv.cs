@@ -12,12 +12,26 @@ public class PlayerInv : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         var item = other.GetComponent<ItemInv>();
-        if (item != null)
+        if (item)
         {
             inventory.AddItem(item.item, 1);
             Destroy(other.gameObject);
         }
     }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            inventory.Save();
+        }
+         
+        if(Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            inventory.Load ();
+        }
+    }
+
     public void OnApplicationQuit()
     {
         inventory.Container.Clear();
