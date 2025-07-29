@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class MapLoad : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform spawnPoint;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            other.transform.position = spawnPoint.position;
+            other.transform.rotation = spawnPoint.rotation;
+        }
     }
 }
