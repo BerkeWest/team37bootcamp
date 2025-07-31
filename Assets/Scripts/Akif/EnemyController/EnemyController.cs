@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     private bool isAttacking = false;
 
     [Header("Health Settings")]
+    [SerializeField] HealthBar healthBar;
     public int maxHealth = 100;
     private float currentHealth;
     private bool isDead = false;
@@ -29,6 +30,8 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -36,7 +39,8 @@ public class EnemyController : MonoBehaviour
 
         DisableAttackCollider();
         currentHealth = maxHealth;
-
+        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(currentHealth);
     }
 
     private void Update()
@@ -187,6 +191,7 @@ public class EnemyController : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
         {
