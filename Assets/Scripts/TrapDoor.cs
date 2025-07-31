@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine;
+
 public class TrapDoor : MonoBehaviour
 {
-    [SerializeField] private GameObject trapDoor;
-    
+    [SerializeField] private Animator trapDoorAnimator;
+
+    private bool hasPlayed = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !hasPlayed)
         {
-            trapDoor.SetActive(false);
+            trapDoorAnimator.Play("wallDisappear");
+            hasPlayed = true;
         }
     }
-    
 }
+

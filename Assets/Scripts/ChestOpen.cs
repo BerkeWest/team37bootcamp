@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class ChestOpen : MonoBehaviour
 {
-    [SerializeField] private GameObject chestlid;
+    [SerializeField] private Animator chestLidAnimator; 
+    private bool animDone = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("PlayerSword"))
+        if (other.CompareTag("PlayerSword") && !animDone)
         {
-            chestlid.transform.Rotate(Vector3.left, 90f);
+            chestLidAnimator.Play("chestOpening");
+            animDone = true;
         }
     }
 }
