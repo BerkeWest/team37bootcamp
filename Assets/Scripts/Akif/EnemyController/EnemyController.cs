@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
@@ -210,6 +211,14 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("die");
         GetComponent<Collider>().enabled = false;
         this.enabled = false; // Opsiyonel: script'i durdurur
+        StartCoroutine(DestroyAfter(3f));
+    }
+
+    IEnumerator DestroyAfter(float seconds)
+    {
+        healthBar.gameObject.SetActive(false);
+        yield return new WaitForSeconds(seconds);
+        Destroy(gameObject);
     }
 
 
