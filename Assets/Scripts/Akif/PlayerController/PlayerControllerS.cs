@@ -89,7 +89,13 @@ public class PlayerControllerS : MonoBehaviour
         stateMachine.CurrentState?.PhysicsUpdate();
     }
 
-
+    public void GoToPosition(Transform newPos)
+    {
+        controller.enabled = false; 
+        transform.position = newPos.position;
+        transform.rotation = newPos.rotation;
+        controller.enabled = true; 
+    }
 
     public void GroundCheck()
     {

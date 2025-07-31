@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapLoad : MonoBehaviour
+public class TrapDoor : MonoBehaviour
 {
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private GameObject trapDoor;
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerControllerS>().GoToPosition(spawnPoint);
+            trapDoor.SetActive(false);
         }
     }
+    
 }
