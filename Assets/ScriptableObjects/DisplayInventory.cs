@@ -1,60 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using TMPro; // TextMeshPro kullanmak için bu satýr gerekli
+using UnityEngine.UI; // UI elemanlarý için (Image, Panel vb.) bu satýr gerekli
 
 public class DisplayInventory : MonoBehaviour
 {
-    public InventoryObject inventory;
-
-    public int X_START;
-    public int Y_START;
-    public int X_SPACE_BETWEEN_ITEM;
-    public int NUMBER_OF_COLUMN;
-    public int Y_SPACE_BETWEEN_ITEMS;
-    Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
+    private InputManager inputManager;
+    public GameObject inventoryPanel;
+    private bool isInventoryOpen = false;
 
     void Start()
     {
-        CreateDisplay();
+        inputManager = InputManager.Instance;
+
+        if (inventoryPanel != null)
+        {
+            inventoryPanel.SetActive(false);
+        }
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // DEBUG: Oyun baþladýðýnda konsola yaz
+        Debug.Log("DisplayInventory script'i baþladý. Envanter kapalý.");
     }
+
 
     void Update()
     {
-        UpdateDisplay();
-    }
-
-    public void UpdateDisplay()
-    {
-        for (int i= 0;i < inventory.Container.Count; i++)
+        // 'E' tuþuna basýldýðýnda
+        if (inputManager.GetInventoryInput())
         {
-            if (itemsDisplayed.ContainsKey(inventory.Container[i]))
-            {
-                itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
-            }
-            else
-            {
-                var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
-                obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
-                itemsDisplayed.Add(inventory.Container[i], obj);
-            }
+            // DEBUG: 'E' tuþuna basýldýðýný konsola yaz
+            Debug.Log("E tuþuna basýldý!");
+            ToggleInventory();
         }
     }
 
-    public void CreateDisplay()
+    public void ToggleInventory()
     {
-        for (int i = 0; i < inventory.Container.Count; i++)
-        {
-            var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
-            obj.GetComponent<RectTransform>().localPosition = GetPosition(i); 
-            obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
-            itemsDisplayed.Add(inventory.Container[i], obj);
-        }
-    }
-    public Vector3 GetPosition(int i)
-    {
-        return new Vector3(X_START+(X_SPACE_BETWEEN_ITEM*(i%NUMBER_OF_COLUMN)),Y_START+(-Y_SPACE_BETWEEN_ITEMS*(i/NUMBER_OF_COLUMN)),0f);
+        isInventoryOpen = !isInventoryOpen;
 
+        if (inventoryPanel != null)
+        {
+            inventoryPanel.SetActive(isInventoryOpen);
+            // DEBUG: Envanter panelinin yeni durumunu konsola yaz
+            Debug.Log("Envanter panelinin durumu deðiþti: " + (isInventoryOpen ? "Açýk" : "Kapalý"));
+        }
+        else
+        {
+            // DEBUG: inventoryPanel'in atanmadýðýný konsola yaz (çok önemli!)
+            Debug.LogError("Hata: inventoryPanel atanmamýþ! Lütfen InventoryScreen objesini Inspector'dan sürükleyip býrakýn.");
+        }
+
+        if (isInventoryOpen)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            // DEBUG: Fare imleci durumunu konsola yaz
+            Debug.Log("Fare imleci serbest ve görünür.");
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            // DEBUG: Fare imleci durumunu konsola yaz
+            Debug.Log("Fare imleci kilitli ve gizli.");
+        }
     }
 }
