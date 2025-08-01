@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: water_shader 1
+  m_Name: lava_shader
   m_Shader: {fileID: -6465566751694194690, guid: 73390ca8ea87f33498cf9a94f93fd77e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -52,12 +52,12 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Ripple_Density: 40
-    - _Ripple_Slimness: 1
-    - _Ripple_Speed: 5
-    - _Wave_Scale: 0.1
-    - _Wave_Speed: 0.5
+    - _Ripple_Density: 1000
+    - _Ripple_Slimness: 10
+    - _Ripple_Speed: 1
+    - _Wave_Scale: 0
+    - _Wave_Speed: 0.075
     m_Colors:
-    - _Base_Color: {r: 1, g: 0.24449529, b: 0, a: 1}
-    - _Ripple_Color: {r: 1, g: 0.5329269, b: 0, a: 1}
+    - _Base_Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Ripple_Color: {r: 1, g: 0.5882353, b: 0, a: 1}
   m_BuildTextureStacks: []
