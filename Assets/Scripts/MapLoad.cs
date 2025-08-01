@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class MapLoad : MonoBehaviour
 {
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Transform playerSpawnPoint;
+    
     
     public GameObject enemyPrefab;             
-    public Transform[] spawnPoints;           
+    public Transform[] enemySpawnPoints;           
     public int numberOfEnemiesToSpawn = 5;
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerControllerS>().GoToPosition(spawnPoint);
+            other.GetComponent<PlayerControllerS>().GoToPosition(playerSpawnPoint);
             SpawnEnemies();
         }
     }
@@ -22,7 +23,7 @@ public class MapLoad : MonoBehaviour
     private void SpawnEnemies()
     {
         System.Collections.Generic.List<int> availableIndices = new System.Collections.Generic.List<int>();
-        for (int i = 0; i < spawnPoints.Length; i++)
+        for (int i = 0; i < enemySpawnPoints.Length; i++)
             availableIndices.Add(i);
         
         for (int i = 0; i < numberOfEnemiesToSpawn && availableIndices.Count > 0; i++)
@@ -31,7 +32,7 @@ public class MapLoad : MonoBehaviour
             int spawnIndex = availableIndices[randomIndex];
             availableIndices.RemoveAt(randomIndex);
 
-            Instantiate(enemyPrefab, spawnPoints[spawnIndex].position, spawnPoints[spawnIndex].rotation);
+            Instantiate(enemyPrefab, enemySpawnPoints[spawnIndex].position, enemySpawnPoints[spawnIndex].rotation);
         }
     }
 }

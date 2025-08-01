@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2694340336797895634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8787053566340981989}
+  m_Layer: 6
+  m_Name: ItemLandingSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8787053566340981989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2694340336797895634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.19, y: 0.77, z: 0.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4124223099062234979}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4518964700078000264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,7 +93,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba0b4ceae36458e49b36727aa2580fff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8787053566340981989}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ba0b4ceae36458e49b36727aa2580fff, type: 3}
       insertIndex: -1
@@ -95,6 +129,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chestLidAnimator: {fileID: 1436335610217648431}
+  itemPrefabs:
+  - {fileID: 1830228425238834344, guid: 41f44b7ae94d2a045bf083787e08a5c4, type: 3}
+  - {fileID: 1479908182469825089, guid: 6221fd19a164d574496a8eb1f1e51a08, type: 3}
+  - {fileID: 5502162794875044038, guid: 5c717df961b360d4e81c9ea4e19d28db, type: 3}
+  - {fileID: 2899478177825945724, guid: c1345fcfff98e7244b33aeabcafb02f4, type: 3}
+  - {fileID: 6057273933726324355, guid: 51a8990194bc6024eb45d06a69d23cd8, type: 3}
+  spawnPoint: {fileID: 8787053566340981989}
+  itemCount: 3
+  throwDistance: 1.5
+  arcHeight: 1
+  throwDuration: 0.6
 --- !u!64 &1807799204569706022
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -139,6 +184,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1896106553039153885, guid: ba0b4ceae36458e49b36727aa2580fff, type: 3}
+--- !u!4 &4124223099062234979 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba0b4ceae36458e49b36727aa2580fff, type: 3}
+  m_PrefabInstance: {fileID: 4518964700078000264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8102328091247315791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3546630837441477689, guid: ba0b4ceae36458e49b36727aa2580fff, type: 3}
