@@ -9,6 +9,7 @@ TagManager:
   - PlayerSword
   - TrapDoor
   - DoorTrigger
+  - SellZone
   layers:
   - Default
   - TransparentFX

@@ -284,6 +284,8 @@ GameObject:
   - component: {fileID: 4223567810178166864}
   - component: {fileID: 438367350725062077}
   - component: {fileID: 4526753063526892887}
+  - component: {fileID: 5540559059835573009}
+  - component: {fileID: 6188913709234389754}
   m_Layer: 0
   m_Name: PlayerStateful
   m_TagString: Player
@@ -450,6 +452,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 590ed2fa82a78b04aae67b94ad435e5e, type: 2}
+--- !u!114 &5540559059835573009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8505775142679923611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b59b15feb5dac642a4384f9e5c04861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryPanel: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 590ed2fa82a78b04aae67b94ad435e5e, type: 2}
+  X_START: -280
+  Y_START: 280
+  X_SPACE_BETWEEN_ITEM: 150
+  NUMBER_OF_COLUMN: 4
+  Y_SPACE_BETWEEN_ITEMS: 150
+--- !u!114 &6188913709234389754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8505775142679923611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413540085a110734d808bd1ca2786c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: {fileID: 0}
+  door: {fileID: 0}
+  openAngle: 90
 --- !u!1001 &539976307738280898
 PrefabInstance:
   m_ObjectHideFlags: 0
