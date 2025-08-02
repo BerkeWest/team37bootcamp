@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ae9a4dc3ddd0e41b74a798e1f7aee5, type: 3}
   m_Name: Sword 1
   m_EditorClassIdentifier: 
-  prefab: {fileID: 273923627366281463, guid: 8ba494647c4da0240adfad4929628f7b, type: 3}
+  prefab: {fileID: 7735664977912329648, guid: 3c3c8eca9c19b934497fe0ecdc4e5ac7, type: 3}
   type: 1
   description: "A sword for slashing and stabbing. \t"
   salePrice: 150

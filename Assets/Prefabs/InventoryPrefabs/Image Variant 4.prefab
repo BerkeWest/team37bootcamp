@@ -13,6 +13,14 @@ PrefabInstance:
       value: Image Variant 4
       objectReference: {fileID: 0}
     - target: {fileID: 2703971070262638138, guid: 8ba494647c4da0240adfad4929628f7b, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703971070262638138, guid: 8ba494647c4da0240adfad4929628f7b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 2703971070262638138, guid: 8ba494647c4da0240adfad4929628f7b, type: 3}
       propertyPath: m_Color.b
       value: 0.35590956
       objectReference: {fileID: 0}

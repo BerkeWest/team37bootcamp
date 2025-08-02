@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +10,12 @@ public class EnemyController : MonoBehaviour
     public float attackRange = 1.5f;
     public LayerMask obstacleMask;
     public Transform player;
+    
+    [Header("Drop Settings")]
+    [SerializeField] private List<GameObject> itemPrefabs; // DROP ITEM ADDED
+    [SerializeField] private Transform dropPoint; // DROP ITEM ADDED
+    public int minItem = 1;
+    public int maxItem = 3;
 
     [Header("Attack Settings")]
     public GameObject attackCollider; // Hasar verecek trigger
@@ -141,7 +148,7 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("attack");
         agent.isStopped = true;
 
-        yield return new WaitForSeconds(0.3f); // animasyon süresine göre ayarla
+        yield return new WaitForSeconds(0.55f); // animasyon süresine göre ayarla
         EnableAttackCollider();
 
         yield return new WaitForSeconds(0.2f); // hasar anı
@@ -149,7 +156,7 @@ public class EnemyController : MonoBehaviour
 
         agent.isStopped = false;
 
-        yield return new WaitForSeconds(1f); // animasyon sonrası gecikme
+        yield return new WaitForSeconds(1.5f); // animasyon sonrası gecikme
         isAttacking = false;
     }
 
@@ -210,8 +217,27 @@ public class EnemyController : MonoBehaviour
         agent.isStopped = true;
         animator.SetTrigger("die");
         GetComponent<Collider>().enabled = false;
+        DropItems();
         this.enabled = false; // Opsiyonel: script'i durdurur
+        
         StartCoroutine(DestroyAfter(3f));
+    }
+    
+    private void DropItems()
+    {
+        if (itemPrefabs == null || itemPrefabs.Count == 0 || dropPoint == null)
+        {
+            Debug.LogWarning("Item prefabs or drop point not set on enemy.");
+            return;
+        }
+
+        int itemCount = Random.Range(minItem, maxItem + 1);
+        for (int i = 0; i < itemCount; i++)
+        {
+            int randomIndex = Random.Range(0, itemPrefabs.Count);
+            Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), 0.2f, Random.Range(-0.5f, 0.5f));
+            Instantiate(itemPrefabs[randomIndex], dropPoint.position + randomOffset, Quaternion.identity);
+        }
     }
 
     IEnumerator DestroyAfter(float seconds)
@@ -227,7 +253,8 @@ public class EnemyController : MonoBehaviour
     {
         if (other.CompareTag("Player") && attackCollider.activeSelf)
         {
-            Debug.Log("Player'a hasar verildi!");
+            other.GetComponent<PlayerControllerS>().TakeDamage(10f);
+            Debug.Log("Player hasar aldı!");
 
         }
         if (other.CompareTag("PlayerSword"))

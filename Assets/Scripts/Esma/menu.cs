@@ -13,16 +13,15 @@ public class menu : MonoBehaviour
     
     [Header("Main Menu Buttons")]
     public Button playButton;
-    public Button continueButton;
     public Button settingsButton;
     public Button creditsButton;
     public Button quitButton;
     
     [Header("Settings Menu")]
     public Button backToMainButton;
-    public Slider musicSlider;
-    public Slider soundSlider;
     public Toggle fullscreenToggle;
+    public TMPro.TMP_Dropdown dropdownGraphics;
+    public TMPro.TMP_Dropdown dropdownDifficulty;
     
     [Header("Pause Menu")]
     public Button resumeButton;
@@ -39,8 +38,13 @@ public class menu : MonoBehaviour
     public int selectedButtonIndex = 0;
     public Button[] mainMenuButtons;
     
+    [Header("Fire Animation")]
+    public GameObject fireObject; // Fire animasyonu için
+    
     private bool isPaused = false;
     private bool isInSettings = false;
+    private bool settingsFromPause = false; // Settings menüsünün pause'tan mı geldiğini kontrol eder
+    private bool graphicsChanged = false; // Graphics ayarı değişti mi kontrol eder
     
     void Start()
     {
@@ -52,13 +56,14 @@ public class menu : MonoBehaviour
         // Ana menüyü göster, diğerlerini gizle
         ShowMainMenu();
         
-        PlayerPrefs.SetInt("SaveGame", 1);
-        PlayerPrefs.Save();
+
 
         int difficulty = PlayerPrefs.GetInt("Difficulty", 0);
         
-        // Slider değerlerini PlayerPrefs'ten yükle
-        LoadSliderValues();
+
+        
+        // Dropdown değerlerini yükle
+        LoadDropdownValues();
     }
     
     void Update()
@@ -70,8 +75,6 @@ public class menu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("ESC basıldı, ana menüye dönülüyor");
-            PlayerPrefs.SetInt("SaveGame", 1);
-            PlayerPrefs.Save();
             SceneManager.LoadScene("menu");
         }
     }
@@ -83,12 +86,12 @@ public class menu : MonoBehaviour
         if (settingsPanel != null) settingsPanel.SetActive(false);
         if (pausePanel != null) pausePanel.SetActive(false);
         
-        // Continue butonunu sadece kayıtlı oyun varsa aktif et
-        if (continueButton != null)
-        {
-            bool hasSaveGame = PlayerPrefs.HasKey("SaveGame");
-            continueButton.interactable = hasSaveGame;
-        }
+        // Pause durumunu sıfırla
+        isPaused = false;
+        isInSettings = false;
+        settingsFromPause = false;
+        
+
     }
     
     void SetupCamera()
@@ -113,8 +116,7 @@ public class menu : MonoBehaviour
         if (playButton != null)
             playButton.onClick.AddListener(OnPlayButtonClicked);
             
-        if (continueButton != null)
-            continueButton.onClick.AddListener(OnContinueButtonClicked);
+
             
         if (settingsButton != null)
             settingsButton.onClick.AddListener(OnSettingsButtonClicked);
@@ -129,25 +131,27 @@ public class menu : MonoBehaviour
         if (backToMainButton != null)
             backToMainButton.onClick.AddListener(OnBackToMainButtonClicked);
         
-        // Slider'ları ayarla
-        if (musicSlider != null)
+
+        
+        // Dropdown listeners
+        if (dropdownGraphics != null)
         {
-            musicSlider.onValueChanged.AddListener(OnMusicSliderChanged);
-            Debug.Log("Music slider listener added");
+            dropdownGraphics.onValueChanged.AddListener(OnGraphicsDropdownChanged);
+            Debug.Log("Graphics dropdown listener added");
         }
         else
         {
-            Debug.LogWarning("Music slider is null!");
+            Debug.LogWarning("Graphics dropdown is null!");
         }
-            
-        if (soundSlider != null)
+        
+        if (dropdownDifficulty != null)
         {
-            soundSlider.onValueChanged.AddListener(OnSoundSliderChanged);
-            Debug.Log("Sound slider listener added");
+            dropdownDifficulty.onValueChanged.AddListener(OnDifficultyDropdownChanged);
+            Debug.Log("Difficulty dropdown listener added");
         }
         else
         {
-            Debug.LogWarning("Sound slider is null!");
+            Debug.LogWarning("Difficulty dropdown is null!");
         }
         
         // Duraklat menüsü
@@ -236,38 +240,64 @@ public class menu : MonoBehaviour
     // Ana menü fonksiyonları
     void ShowMainMenu()
     {
+        // Tüm panelleri sıfırla
         if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
         if (settingsPanel != null) settingsPanel.SetActive(false);
         if (pausePanel != null) pausePanel.SetActive(false);
         
+        // Durumları sıfırla
         isInSettings = false;
         isPaused = false;
+        settingsFromPause = false; // Settings flag'ini de sıfırla
+        
+        // Fire animasyonunu başlat
+        StartFireAnimation();
         
         // İlk butonu seç
         selectedButtonIndex = 0;
         UpdateButtonSelection();
     }
     
+    void StartFireAnimation()
+    {
+        if (fireObject != null)
+        {
+            fireObject.SetActive(true);
+            Animator anim = fireObject.GetComponent<Animator>();
+            if (anim != null)
+            {
+                anim.Play("FireAnimation"); // Animasyon adını buraya yazın
+                Debug.Log("Fire animation started");
+            }
+        }
+    }
+    
+    void StopFireAnimation()
+    {
+        if (fireObject != null)
+        {
+            fireObject.SetActive(false);
+            Debug.Log("Fire animation stopped");
+        }
+    }
+    
     public void OnPlayButtonClicked()
     {
         Debug.Log("Play button clicked - Starting new game");
         // Yeni oyun başlat
-        SceneManager.LoadScene(1); // 1 numaralı sahne SampleScene
+        SceneManager.LoadScene("SampleScene"); // SampleScene sahnesine git
     }
     
-    public void OnContinueButtonClicked()
-    {
-        Debug.Log("Continue button clicked - Loading saved game");
-        SceneManager.LoadScene("SampleScene");
-    }
+
     
     public void OnSettingsButtonClicked()
     {
-        Debug.Log("Settings button clicked");
+        Debug.Log("Settings button clicked from main menu");
         if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
         if (settingsPanel != null) settingsPanel.SetActive(true);
 
         isInSettings = true;
+        settingsFromPause = false; // Main menu'den geldiğini işaretle
     }
     
     public void OnCreditsButtonClicked()
@@ -289,7 +319,42 @@ public class menu : MonoBehaviour
     // Ayarlar menüsü fonksiyonları
     public void OnBackToMainButtonClicked()
     {
-        ShowMainMenu();
+        // Graphics ayarı değişti mi kontrol et
+        if (graphicsChanged)
+        {
+            Debug.Log("Graphics settings changed, applying new settings...");
+            // Sadece graphics ayarlarını uygula, sahne yeniden yükleme
+            int graphicsQuality = PlayerPrefs.GetInt("GraphicsQuality", 1);
+            QualitySettings.SetQualityLevel(graphicsQuality);
+            graphicsChanged = false; // Flag'i sıfırla
+            Debug.Log("Graphics quality applied: " + graphicsQuality);
+        }
+        
+        if (settingsFromPause)
+        {
+            // Pause menu'den geldiyse pause menu'ye dön
+            Debug.Log("Returning to pause menu from settings");
+            if (settingsPanel != null) settingsPanel.SetActive(false);
+            if (pausePanel != null) pausePanel.SetActive(true);
+            if (mainMenuPanel != null) mainMenuPanel.SetActive(false); // Main menu'yu gizle
+            isInSettings = false;
+            isPaused = true; // Pause durumunu koru
+            // Oyun hala duraklatılmış durumda kalmalı (Time.timeScale = 0)
+        }
+        else
+        {
+            // Main menu'den geldiyse main menu'ye dön
+            Debug.Log("Returning to main menu from settings");
+            if (settingsPanel != null) settingsPanel.SetActive(false);
+            if (pausePanel != null) pausePanel.SetActive(false); // Pause menu'yu gizle
+            if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
+            isInSettings = false;
+            isPaused = false;
+            
+            // İlk butonu seç
+            selectedButtonIndex = 0;
+            UpdateButtonSelection();
+        }
     }
     
     // Duraklat menüsü fonksiyonları
@@ -310,74 +375,88 @@ public class menu : MonoBehaviour
     void OnPauseSettingsButtonClicked()
     {
         Debug.Log("Pause settings button clicked");
-        // Duraklat menüsünden ayarlara git
+        if (pausePanel != null) pausePanel.SetActive(false);
+        if (settingsPanel != null) settingsPanel.SetActive(true);
+        
+        isInSettings = true;
+        settingsFromPause = true; // Pause menu'den geldiğini işaretle
+        // Oyun hala duraklatılmış durumda kalmalı (Time.timeScale = 0)
     }
     
     void OnPauseMainMenuButtonClicked()
     {
         Debug.Log("Pause main menu button clicked");
         Time.timeScale = 1f; // Zamanı normale döndür
+        isPaused = false;
+        
         // Ana menüye dön
-        // SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("menu"); // Ana menü sahnesine dön
     }
 
-    // Oyuncu bir ilerleme kaydettiğinde çağır
-    void SaveGame()
-    {
-        PlayerPrefs.SetInt("SaveGame", 1); // Sadece varlığını kontrol etmek için
-        // İstersen başka veriler de kaydedebilirsin
-        // PlayerPrefs.SetInt("Level", currentLevel);
-        // PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
-        PlayerPrefs.Save();
-    }
 
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        SaveGame();
-    }
 
     public void OnGraphicsDropdownChanged(int value)
     {
-        // value: seçilen grafik kalitesi (0, 1, 2, ...)
-        QualitySettings.SetQualityLevel(value);
-        Debug.Log("Graphics quality changed: " + value);
+        // value: 0 = Low, 1 = Medium, 2 = High
+        switch (value)
+        {
+            case 0: // Low
+                QualitySettings.SetQualityLevel(0);
+                Debug.Log("Graphics quality set to: Low");
+                break;
+            case 1: // Medium
+                QualitySettings.SetQualityLevel(1);
+                Debug.Log("Graphics quality set to: Medium");
+                break;
+            case 2: // High
+                QualitySettings.SetQualityLevel(2);
+                Debug.Log("Graphics quality set to: High");
+                break;
+            default:
+                QualitySettings.SetQualityLevel(1); // Default to Medium
+                Debug.Log("Graphics quality set to: Medium (default)");
+                break;
+        }
+        
+        // Graphics değişiklik flag'ini set et
+        graphicsChanged = true;
+        
+        // Ayarı kaydet
+        PlayerPrefs.SetInt("GraphicsQuality", value);
+        PlayerPrefs.Save();
     }
 
     public void OnDifficultyDropdownChanged(int value)
     {
-        // value: seçilen zorluk seviyesi (0: Kolay, 1: Orta, 2: Zor gibi)
-        PlayerPrefs.SetInt("Difficulty", value);
+        // value: 0 = Easy, 1 = Normal, 2 = Hard
+        switch (value)
+        {
+            case 0: // Easy
+                PlayerPrefs.SetInt("Difficulty", 0);
+                PlayerPrefs.SetFloat("EnemyDamage", 10f); // Düşük hasar
+                Debug.Log("Difficulty set to: Easy - Enemy Damage: 10");
+                break;
+            case 1: // Normal
+                PlayerPrefs.SetInt("Difficulty", 1);
+                PlayerPrefs.SetFloat("EnemyDamage", 20f); // Normal hasar
+                Debug.Log("Difficulty set to: Normal - Enemy Damage: 20");
+                break;
+            case 2: // Hard
+                PlayerPrefs.SetInt("Difficulty", 2);
+                PlayerPrefs.SetFloat("EnemyDamage", 35f); // Yüksek hasar
+                Debug.Log("Difficulty set to: Hard - Enemy Damage: 35");
+                break;
+            default:
+                PlayerPrefs.SetInt("Difficulty", 1); // Default to Normal
+                PlayerPrefs.SetFloat("EnemyDamage", 20f); // Default normal hasar
+                Debug.Log("Difficulty set to: Normal (default) - Enemy Damage: 20");
+                break;
+        }
+        
         PlayerPrefs.Save();
-        Debug.Log("Difficulty changed: " + value);
     }
 
-    public void OnMusicSliderChanged(float value)
-    {
-        // value: 0.0 - 1.0 arası müzik sesi
-        PlayerPrefs.SetFloat("MusicVolume", value);
-        PlayerPrefs.Save();
-        Debug.Log("Music volume changed: " + value);
-        // Burada müzik sesini ayarlayan AudioSource varsa onu da güncelleyebilirsin
-    }
 
-    public void OnSoundSliderChanged(float value)
-    {
-        // value: 0.0 - 1.0 arası ses seviyesi
-        PlayerPrefs.SetFloat("SoundVolume", value);
-        PlayerPrefs.Save();
-        Debug.Log("Sound volume changed: " + value);
-        // Burada ses efektini ayarlayan AudioSource varsa onu da güncelleyebilirsin
-    }
 
     public void OnResolutionDropdownChanged(int value)
     {
@@ -397,32 +476,70 @@ public class menu : MonoBehaviour
         Debug.Log("Resolution changed: " + Screen.currentResolution);
     }
     
-    void LoadSliderValues()
+
+    
+    void LoadDropdownValues()
     {
-        Debug.Log("Loading slider values...");
+        Debug.Log("Loading dropdown values...");
         
-        // Müzik slider'ını yükle
-        if (musicSlider != null)
+        // Graphics dropdown değerini yükle
+        if (dropdownGraphics != null)
         {
-            float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
-            musicSlider.value = musicVolume;
-            Debug.Log("Music slider value set to: " + musicVolume);
+            int graphicsQuality = PlayerPrefs.GetInt("GraphicsQuality", 1); // Default: Medium
+            dropdownGraphics.value = graphicsQuality;
+            Debug.Log("Graphics dropdown value set to: " + graphicsQuality);
         }
         else
         {
-            Debug.LogWarning("Music slider is null in LoadSliderValues!");
+            // Otomatik olarak Graphics dropdown'u bul
+            dropdownGraphics = FindDropdownByName("Graphics");
+            if (dropdownGraphics != null)
+            {
+                int graphicsQuality = PlayerPrefs.GetInt("GraphicsQuality", 1);
+                dropdownGraphics.value = graphicsQuality;
+                Debug.Log("Graphics dropdown found and value set to: " + graphicsQuality);
+            }
+            else
+            {
+                Debug.LogWarning("Graphics dropdown not found! Please assign it in the inspector.");
+            }
         }
         
-        // Ses slider'ını yükle
-        if (soundSlider != null)
+        // Difficulty dropdown değerini yükle
+        if (dropdownDifficulty != null)
         {
-            float soundVolume = PlayerPrefs.GetFloat("SoundVolume", 1.0f);
-            soundSlider.value = soundVolume;
-            Debug.Log("Sound slider value set to: " + soundVolume);
+            int difficulty = PlayerPrefs.GetInt("Difficulty", 1); // Default: Normal
+            dropdownDifficulty.value = difficulty;
+            Debug.Log("Difficulty dropdown value set to: " + difficulty);
         }
         else
         {
-            Debug.LogWarning("Sound slider is null in LoadSliderValues!");
+            // Otomatik olarak Difficulty dropdown'u bul
+            dropdownDifficulty = FindDropdownByName("Difficulty");
+            if (dropdownDifficulty != null)
+            {
+                int difficulty = PlayerPrefs.GetInt("Difficulty", 1);
+                dropdownDifficulty.value = difficulty;
+                Debug.Log("Difficulty dropdown found and value set to: " + difficulty);
+            }
+            else
+            {
+                Debug.LogWarning("Difficulty dropdown not found! Please assign it in the inspector.");
+            }
         }
+    }
+    
+    // Dropdown'u ismine göre bulan yardımcı fonksiyon
+    TMPro.TMP_Dropdown FindDropdownByName(string name)
+    {
+        TMPro.TMP_Dropdown[] allDropdowns = FindObjectsOfType<TMPro.TMP_Dropdown>();
+        foreach (TMPro.TMP_Dropdown dropdown in allDropdowns)
+        {
+            if (dropdown.name.Contains(name))
+            {
+                return dropdown;
+            }
+        }
+        return null;
     }
 }
