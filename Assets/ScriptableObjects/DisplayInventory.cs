@@ -11,6 +11,8 @@ public class DisplayInventory : MonoBehaviour
     public GameObject inventoryPanel;
     public InventoryObject inventory; // Envanter verilerini tutan ScriptableObject
 
+    public TextMeshProUGUI goldText; // <<< YENÝ EKLENEN SATIR: Altýn miktarýný gösterecek TextMeshPro objesi <<<
+
     public int X_START; // Ýlk item'ýn X baþlangýç pozisyonu
     public int Y_START; // Ýlk item'ýn Y baþlangýç pozisyonu
     public int X_SPACE_BETWEEN_ITEM; // Item'lar arasý X boþluðu
@@ -35,8 +37,17 @@ public class DisplayInventory : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        // Altýn miktarýný her oyun baþladýðýnda sýfýrla.
+        if (inventory != null)
+        {
+            inventory.gold = 0; // <<< YENÝ EKLENEN SATIR: Altýný sýfýrla! <<<
+        }
+
         // Envanterin baþlangýçtaki durumunu (varsa itemleri) ekrana yansýt.
         CreateDisplay();
+
+        // Altýn textini baþlangýçta da güncelle (sýfýrlanmýþ deðeri göstersin).
+        UpdateGoldText(); // <<< YENÝ EKLENEN ÇAÐRI <<<
 
         // DEBUG: Oyun baþladýðýnda konsola yaz
         Debug.Log("DisplayInventory script'i baþladý. Envanter kapalý.");
@@ -56,6 +67,8 @@ public class DisplayInventory : MonoBehaviour
         if (isInventoryOpen)
         {
             UpdateDisplay();
+            // Altýn textini envanter açýkken sürekli güncelle (altýn kazandýkça deðiþimi gör)
+            UpdateGoldText(); // <<< YENÝ EKLENEN ÇAÐRI <<<
         }
     }
 
@@ -68,7 +81,7 @@ public class DisplayInventory : MonoBehaviour
         if (inventoryPanel != null)
         {
             inventoryPanel.SetActive(isInventoryOpen);
-            // DEBUG: Envanter panelinin durumu deðiþti: " + (isInventoryOpen ? "Açýk" : "Kapalý"));
+            Debug.Log("Envanter panelinin durumu deðiþti: " + (isInventoryOpen ? "Açýk" : "Kapalý")); // DEBUG mesajý
         }
         else
         {
@@ -110,7 +123,7 @@ public class DisplayInventory : MonoBehaviour
 
             // Item'ýn prefab'inden yeni bir UI objesi oluþtur.
             // ÖNEMLÝ DEÐÝÞÝKLÝK BURADA: 'transform' yerine 'inventoryPanel.transform' kullanýyoruz.
-            var obj = Instantiate(currentSlot.item.prefab, Vector3.zero, Quaternion.identity, inventoryPanel.transform); //
+            var obj = Instantiate(currentSlot.item.prefab, Vector3.zero, Quaternion.identity, inventoryPanel.transform);
 
             // Bu satýr, UI olaylarýný (mouse etkileþimi gibi) algýlamasýný saðlar.
             obj.AddComponent<CanvasGroup>().blocksRaycasts = true;
@@ -179,7 +192,7 @@ public class DisplayInventory : MonoBehaviour
             {
                 // Yeni UI objesi oluþtur
                 // ÖNEMLÝ DEÐÝÞÝKLÝK BURADA: 'transform' yerine 'inventoryPanel.transform' kullanýyoruz.
-                var obj = Instantiate(currentSlot.item.prefab, Vector3.zero, Quaternion.identity, inventoryPanel.transform); //
+                var obj = Instantiate(currentSlot.item.prefab, Vector3.zero, Quaternion.identity, inventoryPanel.transform);
                 obj.AddComponent<CanvasGroup>().blocksRaycasts = true;
                 obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
@@ -193,11 +206,36 @@ public class DisplayInventory : MonoBehaviour
         }
     }
 
+    // <<< YENÝ EKLENEN FONKSÝYON: Altýn textini güncellemek için! <<<
+    public void UpdateGoldText()
+    {
+        if (goldText != null && inventory != null)
+        {
+            goldText.text = inventory.gold.ToString(); // InventoryObject'teki 'gold' deðerini stringe çevirip text'e ata
+        }
+        else if (goldText == null)
+        {
+            Debug.LogWarning("Uyarý: goldText objesi DisplayInventory script'ine atanmamýþ!");
+        }
+        else if (inventory == null)
+        {
+            Debug.LogError("Hata: InventoryObject DisplayInventory script'ine atanmamýþ!");
+        }
+    }
+
+
     // Item'ýn envanterdeki pozisyonunu hesaplar (ýzgara mantýðý)
     public Vector3 GetPosition(int i)
     {
         // Formül: Baþlangýç X + (Item'ýn sütun numarasý * Sütunlar arasý boþluk)
         // Baþlangýç Y + (Item'ýn satýr numarasý * Satýrlar arasý boþluk)
+        // Sýfýra bölme hatasýný önlemek için NUMBER_OF_COLUMN kontrolü
+        if (NUMBER_OF_COLUMN == 0)
+        {
+            Debug.LogError("Hata: NUMBER_OF_COLUMN 0 olamaz! Lütfen DisplayInventory script'inde doðru bir deðer girin.");
+            return Vector3.zero; // Hata durumunda varsayýlan bir deðer döndür
+        }
+
         return new Vector3(X_START + (X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN)),
                            Y_START + (-Y_SPACE_BETWEEN_ITEMS * (i / NUMBER_OF_COLUMN)),
                            0f);
