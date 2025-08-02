@@ -15,6 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 7933386532733074183, guid: 0ed83da882f546f4dbfc6f91903c4d40, type: 3}
   type: 1
   description: A shield for defending.
-  salePrice: 100
   atkBonus: 0
   defenceBonus: 10

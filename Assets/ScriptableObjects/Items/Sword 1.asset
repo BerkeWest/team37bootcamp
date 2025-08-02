@@ -15,6 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 273923627366281463, guid: 8ba494647c4da0240adfad4929628f7b, type: 3}
   type: 1
   description: "A sword for slashing and stabbing. \t"
-  salePrice: 150
   atkBonus: 15
   defenceBonus: 0
