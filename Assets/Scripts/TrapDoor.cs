@@ -1,22 +1,36 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 using UnityEngine;
 
 public class TrapDoor : MonoBehaviour
 {
-    [SerializeField] private Animator trapDoorAnimator;
-
-    private bool hasPlayed = false;
+    [SerializeField] private GameObject wallToMove; 
+    [SerializeField] private float moveDistance = 4.15f; 
+    [SerializeField] private float moveDuration = 1f; 
+    private bool hasMoved = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !hasPlayed)
+        if (other.CompareTag("Player") && !hasMoved)
         {
-            trapDoorAnimator.Play("wallDisappear");
-            hasPlayed = true;
+            hasMoved = true;
+            StartCoroutine(MoveWallDown());
         }
     }
-}
 
+    private IEnumerator MoveWallDown()
+    {
+        Vector3 startPos = wallToMove.transform.position;
+        Vector3 endPos = startPos + Vector3.down * moveDistance;
+
+        float elapsed = 0f;
+
+        while (elapsed < moveDuration)
+        {
+            wallToMove.transform.position = Vector3.Lerp(startPos, endPos, elapsed / moveDuration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        wallToMove.transform.position = endPos;
+    }
+}
