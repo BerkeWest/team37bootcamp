@@ -15,3 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 7735664977912329648, guid: 738d5505c53723145901a20eef991988, type: 3}
   type: 2
   description: The left over of those your slain!
+  salePrice: 5

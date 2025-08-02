@@ -16,4 +16,5 @@ MonoBehaviour:
   type: 0
   description: It may fall when you destroy the bushes. Increases your health by
     +5.
+  salePrice: 10
   restoreHealthValue: 5
