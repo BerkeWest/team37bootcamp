@@ -16,7 +16,7 @@ public class KeyCollection : MonoBehaviour
             hasKey = true;
             other.gameObject.SetActive(false);
         }
-        else if (other.gameObject == door && hasKey && !doorOpened)
+        else if (other.gameObject.CompareTag("DoorTrigger") && hasKey && !doorOpened)
         {
             Vector3 currentRotation = door.transform.eulerAngles;
             door.transform.eulerAngles = new Vector3(currentRotation.x, openAngle, currentRotation.z);
