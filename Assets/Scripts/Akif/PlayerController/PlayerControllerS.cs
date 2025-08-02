@@ -1,4 +1,6 @@
+using System.Collections;
 using Unity.IO.LowLevel.Unsafe;
+using Unity.Services.Analytics;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -60,9 +62,16 @@ public class PlayerControllerS : MonoBehaviour
     [HideInInspector] public float dashCooldownTimer;
     [HideInInspector] public Vector3 dashDirection;
 
-    
+    [Header("Health Settings")]
+    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private int maxHealth = 100;
+    private float currentHealth;
+    private bool isDead = false;
+    private bool isHit = false;
+
     void Awake()
     {
+        healthBar = FindObjectOfType<HealthBar>();
         controller = GetComponent<CharacterController>();
 
         if (!animator)
@@ -73,6 +82,10 @@ public class PlayerControllerS : MonoBehaviour
 
     void Start()
     {
+        healthBar.SetMaxHealth(maxHealth);
+        currentHealth = maxHealth;
+        healthBar.SetHealth(currentHealth);
+
         inputManager = InputManager.Instance;
 
         stateMachine.Initialize(new IdleState(this, stateMachine));
@@ -80,6 +93,8 @@ public class PlayerControllerS : MonoBehaviour
 
     void Update()
     {
+        if (isDead || isHit) return;
+
         stateMachine.CurrentState?.HandleInput();
         stateMachine.CurrentState?.LogicUpdate();
     }
@@ -87,6 +102,43 @@ public class PlayerControllerS : MonoBehaviour
     void FixedUpdate()
     {
         stateMachine.CurrentState?.PhysicsUpdate();
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (isDead || isHit || isDashing) return;
+
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            StartCoroutine(HandleHit());
+        }
+    }
+
+    private IEnumerator HandleHit()
+    {
+        isHit = true;
+        animator.SetTrigger("getHit");
+
+        yield return new WaitForSeconds(0.4f); // "getHit" animasyonu süresi kadar
+
+        yield return new WaitForSeconds(0.6f);
+        isHit = false;
+    }
+
+    private void Die()
+    {
+        isDead = true;
+        animator.SetTrigger("die");
+        controller.enabled = false;
+        GetComponent<Collider>().enabled = false;
+        //this.enabled = false;
     }
 
     public void GoToPosition(Transform newPos)

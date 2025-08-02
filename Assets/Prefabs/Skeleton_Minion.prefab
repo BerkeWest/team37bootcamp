@@ -377,6 +377,7 @@ MonoBehaviour:
   backBar: {fileID: 6112933358226685574}
   delay: 0.5
   smoothSpeed: 0.25
+  lookAtCamera: 1
   target: {fileID: 0}
 --- !u!1 &9007496649743789089
 GameObject:
@@ -429,8 +430,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5825167, y: 1.6460693, z: 0.12963524}
-  m_Center: {x: -0.7983893, y: 0.49360788, z: 0.0047641993}
+  m_Size: {x: 1.1226732, y: 1.0623608, z: 0.66639555}
+  m_Center: {x: -0.56846756, y: 0.78546214, z: -0.09752482}
 --- !u!1001 &8421214467481818644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1206,8 +1207,8 @@ MonoBehaviour:
   - {fileID: 1479908182469825089, guid: 6221fd19a164d574496a8eb1f1e51a08, type: 3}
   - {fileID: 2899478177825945724, guid: c1345fcfff98e7244b33aeabcafb02f4, type: 3}
   dropPoint: {fileID: 3954090456771279065}
-  lowestItem: 1
-  highestItem: 4
+  minItem: 1
+  maxItem: 3
   attackCollider: {fileID: 9007496649743789089}
   animator: {fileID: 8570134774095364368}
   healthBar: {fileID: 3662722591985378068}

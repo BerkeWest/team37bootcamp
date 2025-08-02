@@ -9,6 +9,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] float delay = 0.5f;
     [SerializeField] float smoothSpeed = 1f;
 
+    public bool lookAtCamera = true;
     public Transform target;
 
     float currentHealth;
@@ -17,7 +18,11 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        target = Camera.main.transform;
+        if (lookAtCamera)
+        {
+            target = Camera.main.transform;
+
+        }
     }
 
     public void SetMaxHealth(float value)
@@ -36,7 +41,11 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(target.position);
+        if (lookAtCamera)
+        {
+            transform.LookAt(target.position);
+
+        }
 
         lerpTimer += Time.deltaTime;
 

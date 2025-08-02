@@ -148,7 +148,7 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("attack");
         agent.isStopped = true;
 
-        yield return new WaitForSeconds(0.3f); // animasyon süresine göre ayarla
+        yield return new WaitForSeconds(0.55f); // animasyon süresine göre ayarla
         EnableAttackCollider();
 
         yield return new WaitForSeconds(0.2f); // hasar anı
@@ -156,7 +156,7 @@ public class EnemyController : MonoBehaviour
 
         agent.isStopped = false;
 
-        yield return new WaitForSeconds(1f); // animasyon sonrası gecikme
+        yield return new WaitForSeconds(1.5f); // animasyon sonrası gecikme
         isAttacking = false;
     }
 
@@ -253,7 +253,8 @@ public class EnemyController : MonoBehaviour
     {
         if (other.CompareTag("Player") && attackCollider.activeSelf)
         {
-            Debug.Log("Player'a hasar verildi!");
+            other.GetComponent<PlayerControllerS>().TakeDamage(10f);
+            Debug.Log("Player hasar aldı!");
 
         }
         if (other.CompareTag("PlayerSword"))
