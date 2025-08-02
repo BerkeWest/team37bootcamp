@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PlayerSword
   - TrapDoor
+  - SellZone
   layers:
   - Default
   - TransparentFX
