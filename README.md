@@ -324,13 +324,13 @@
     - By collecting the key on the table, players can enter the treasure room for more loot.
     - dungeon portal destroys the enemies left alive and resets the key, locked door, trap door, and chests.
 
-  - **Labyrinth Development:**
-    - The labyrinth is the large and confusing map.
+- **Labyrinth Development:**
+    - The labyrinth is a large and confusing map.
     - Due to its large size enemy count is increased. While some rooms are empty, some might be full of skeletons.
     - You need to find the key in the large labyrinth to be able to go to the  portal room to escape.
     - Like the dungeon, it also has many chests, a treasure room with a trap door, and many enemies to kill.
    
-  - **Sprint Retrospective:**
+- **Sprint Retrospective:**
     - We managed to finish our game. The end product was satisfying. It could still have more improvements, but for how much effort we put into the game this sprint, it is pretty successful.
     - For our future projects, we need to put this much effort into every sprint, and we can make so much more.
 
