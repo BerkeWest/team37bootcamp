@@ -29,27 +29,39 @@ public class YouWin : MonoBehaviour
     
     void SetupButtonListeners()
     {
+        Debug.Log("Setting up button listeners...");
+        
         // Ana menüye dön butonu
         if (menuButton != null)
+        {
             menuButton.onClick.AddListener(ReturnToMainMenu);
+            Debug.Log("Menu button listener added successfully");
+        }
         else
-            Debug.LogWarning("Menu button is null! Please assign it in the inspector.");
+        {
+            Debug.LogError("Menu button is null! Please assign it in the inspector.");
+        }
             
         // Yeni oyun butonu
         if (newGameButton != null)
+        {
             newGameButton.onClick.AddListener(StartNewGame);
+            Debug.Log("New Game button listener added successfully");
+        }
         else
-            Debug.LogWarning("New Game button is null! Please assign it in the inspector.");
+        {
+            Debug.LogError("New Game button is null! Please assign it in the inspector.");
+        }
     }
     
-    void ReturnToMainMenu()
+    public void ReturnToMainMenu()
     {
         Debug.Log("Returning to main menu from You Win");
         Time.timeScale = 1f; // Zamanı normale döndür
         SceneManager.LoadScene("MainMenu");
     }
     
-    void StartNewGame()
+    public void StartNewGame()
     {
         Debug.Log("Starting new game from You Win");
         Time.timeScale = 1f; // Zamanı normale döndür
