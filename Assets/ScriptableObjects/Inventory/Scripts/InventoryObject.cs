@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-// using System.IO.Enumeration; // Bu satýrý Unity'de hata veriyorsa silebilirsiniz, genellikle gerekli deðildir.
+// using System.IO.Enumeration; // Bu satï¿½rï¿½ Unity'de hata veriyorsa silebilirsiniz, genellikle gerekli deï¿½ildir.
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
@@ -12,7 +13,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     public ItemDatabaseObject database;
     public List<InventorySlot> Container = new List<InventorySlot>();
 
-    public long gold; // <<< YENÝ EKLENEN SATIR: Oyuncunun altýn miktarý burda tutulacak! <<<
+    public long gold; // <<< YENï¿½ EKLENEN SATIR: Oyuncunun altï¿½n miktarï¿½ burda tutulacak! <<<
 
     public void AddItem(ItemObject _item, int _amount)
     {
@@ -27,17 +28,21 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
         Container.Add(new InventorySlot(database.GetId[_item], _item, _amount));
     }
 
-    // <<< YENÝ EKLENEN FONKSÝYON: Altýn eklemek için! <<<
+    // <<< YENï¿½ EKLENEN FONKSï¿½YON: Altï¿½n eklemek iï¿½in! <<<
     public void AddGold(long amount)
     {
-        gold += amount; // Gelen miktarý mevcut altýna ekle
-        Debug.Log($"Altýn eklendi: {amount}. Toplam altýn: {gold}"); // Konsola bilgi yaz
-        // Eðer oyun içinde altýný gösteren bir UI text'iniz varsa, burada onu güncelleyebilirsiniz.
-        // Örneðin: if (goldTextUI != null) goldTextUI.text = gold.ToString();
+        gold += amount; // Gelen miktarï¿½ mevcut altï¿½na ekle
+        Debug.Log($"Altï¿½n eklendi: {amount}. Toplam altï¿½n: {gold}"); // Konsola bilgi yaz
+        // Eï¿½er oyun iï¿½inde altï¿½nï¿½ gï¿½steren bir UI text'iniz varsa, burada onu gï¿½ncelleyebilirsiniz.
+        // ï¿½rneï¿½in: if (goldTextUI != null) goldTextUI.text = gold.ToString();
+        if (gold >= menu.playerDebt)
+        {
+            SceneManager.LoadScene("YouWin");
+        }
     }
 
-    // <<< YENÝ EKLENEN FONKSÝYON: Item silmek için! <<<
-    // Bu fonksiyon SellManager'da kullanýlýyor. Eðer sizde zaten varsa, mevcut olaný kullanýn.
+    // <<< YENï¿½ EKLENEN FONKSï¿½YON: Item silmek iï¿½in! <<<
+    // Bu fonksiyon SellManager'da kullanï¿½lï¿½yor. Eï¿½er sizde zaten varsa, mevcut olanï¿½ kullanï¿½n.
     // Yoksa, bu fonksiyonu eklemeniz gerekiyor.
     public void RemoveItem(ItemObject _item, int _amount)
     {
@@ -48,7 +53,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
                 Container[i].amount -= _amount;
                 if (Container[i].amount <= 0)
                 {
-                    Container.RemoveAt(i); // Eðer miktar 0 veya altýna düþerse slotu tamamen sil
+                    Container.RemoveAt(i); // Eï¿½er miktar 0 veya altï¿½na dï¿½ï¿½erse slotu tamamen sil
                 }
                 return;
             }
@@ -86,16 +91,16 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     public void OnBeforeSerialize()
     {
-        // Genellikle buraya bir þey yazmaya gerek kalmaz, ama interface gereði boþ býrakýlmaz.
+        // Genellikle buraya bir ï¿½ey yazmaya gerek kalmaz, ama interface gereï¿½i boï¿½ bï¿½rakï¿½lmaz.
     }
 }
 
-[System.Serializable] // Unity'de Inspector'da görünmesi için gerekli
+[System.Serializable] // Unity'de Inspector'da gï¿½rï¿½nmesi iï¿½in gerekli
 public class InventorySlot
 {
     public int ID;
     public ItemObject item; // Envanter slotunda saklanan genel obje
-    public int amount; // Envanter slotunda saklanan objelerin toplam miktarý
+    public int amount; // Envanter slotunda saklanan objelerin toplam miktarï¿½
 
     public InventorySlot(int _id, ItemObject _item, int _amount)
     {

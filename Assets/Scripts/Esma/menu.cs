@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 public class menu : MonoBehaviour
 {
@@ -26,6 +28,7 @@ public class menu : MonoBehaviour
     
     public static int dungeonEnemyCount;
     public static int labyrinthEnemyCount;
+    public static int playerDebt = 10000;
     
     [Header("Pause Menu")]
     public Button resumeButton;
@@ -441,6 +444,7 @@ public class menu : MonoBehaviour
                 PlayerPrefs.SetFloat("EnemyDamage", 10f); // Düşük hasar
                 dungeonEnemyCount = 6;
                 labyrinthEnemyCount = 25;
+                playerDebt = 5000;
                 Debug.Log("Difficulty set to: Easy - Enemy Damage: 10");
                 break;
             case 1: // Normal
@@ -448,6 +452,7 @@ public class menu : MonoBehaviour
                 PlayerPrefs.SetFloat("EnemyDamage", 20f); // Normal hasar
                 dungeonEnemyCount = 12;
                 labyrinthEnemyCount = 45;
+                playerDebt = 10000;
                 Debug.Log("Difficulty set to: Normal - Enemy Damage: 20");
                 break;
             case 2: // Hard
@@ -455,6 +460,7 @@ public class menu : MonoBehaviour
                 PlayerPrefs.SetFloat("EnemyDamage", 35f); // Yüksek hasar
                 dungeonEnemyCount = 18;
                 labyrinthEnemyCount = 65;
+                playerDebt = 25000;
                 Debug.Log("Difficulty set to: Hard - Enemy Damage: 35");
                 break;
             default:
@@ -462,6 +468,7 @@ public class menu : MonoBehaviour
                 PlayerPrefs.SetFloat("EnemyDamage", 20f); // Default normal hasar
                 dungeonEnemyCount = 12;
                 labyrinthEnemyCount = 45;
+                playerDebt = 10000;
                 Debug.Log("Difficulty set to: Normal (default) - Enemy Damage: 20");
                 break;
         }
