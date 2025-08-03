@@ -15,6 +15,8 @@ public class PlayerInv : MonoBehaviour
         if (item)
         {
             inventory.AddItem(item.item, 1);
+            AudioManager.Instance.Play("AddItem", true);
+
             Destroy(other.gameObject);
         }
     }

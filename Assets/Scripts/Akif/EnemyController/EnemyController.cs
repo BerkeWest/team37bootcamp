@@ -132,6 +132,8 @@ public class EnemyController : MonoBehaviour
         isHit = true;
         agent.isStopped = true;
         animator.SetTrigger("getHit");
+        AudioManager.Instance.Play("EnemyHit", true);
+
 
         yield return new WaitForSeconds(0.4f); // "getHit" animasyonu süresi kadar
 
@@ -150,6 +152,8 @@ public class EnemyController : MonoBehaviour
 
         yield return new WaitForSeconds(0.55f); // animasyon süresine göre ayarla
         EnableAttackCollider();
+        AudioManager.Instance.Play("EnemyAttack", true);
+
 
         yield return new WaitForSeconds(0.2f); // hasar anı
         DisableAttackCollider();

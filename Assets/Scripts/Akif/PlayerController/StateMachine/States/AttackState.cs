@@ -6,7 +6,9 @@ public class AttackState : PlayerState
     private float attackTimer = 0f;
 
     public AttackState(PlayerControllerS player, PlayerStateMachine stateMachine) : base(player, stateMachine)
-    {    }
+    {  
+        AudioManager.Instance.Play("PlayerAttack", true);
+    }
 
     public override void Enter()
     {

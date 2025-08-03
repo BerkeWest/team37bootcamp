@@ -136,6 +136,8 @@ public class PlayerControllerS : MonoBehaviour
     {
         isHit = true;
         animator.SetTrigger("getHit");
+        AudioManager.Instance.Play("EnemyHit", true);
+
 
         yield return new WaitForSeconds(0.4f); // "getHit" animasyonu s�resi kadar
 
@@ -145,6 +147,9 @@ public class PlayerControllerS : MonoBehaviour
 
     public void Die()
     {
+        AudioManager.Instance.Play("Death", true);
+
+
         isDead = true;
         animator.SetTrigger("die");
         controller.enabled = false;

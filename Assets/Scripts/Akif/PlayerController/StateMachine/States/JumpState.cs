@@ -3,7 +3,9 @@ using UnityEngine;
 public class JumpState : PlayerState
 {
     public JumpState(PlayerControllerS player, PlayerStateMachine stateMachine)
-        : base(player, stateMachine) { }
+        : base(player, stateMachine) {
+        AudioManager.Instance.Play("PlayerJump", true);
+    }
 
     public override void Enter()
     {

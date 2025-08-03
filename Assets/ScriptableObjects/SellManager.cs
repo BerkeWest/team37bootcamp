@@ -95,6 +95,8 @@ public class SellManager : MonoBehaviour
             {
                 // Item'ýn satýþ deðerini ve miktarýný kullanarak kazanýlan altýný hesapla
                 totalGoldEarned += (long)slot.item.salePrice * slot.amount;
+                AudioManager.Instance.Play("SellItem", true);
+
                 Debug.Log($"{slot.item.name} x {slot.amount} satýldý. Kazanýlan: {slot.item.salePrice * slot.amount} altýn."); // Konsola bilgi yaz
             }
             // Item'ý envanterden tamamen sil (InventoryObject'teki RemoveItem fonksiyonunu çaðýrýr)

@@ -35,6 +35,9 @@ public class TrapDoor : MonoBehaviour
 
         float elapsed = 0f;
 
+        AudioManager.Instance.Play("DoorOpen", true);
+
+
         while (elapsed < moveDuration)
         {
             wallToMove.transform.position = Vector3.Lerp(startPos, endPos, elapsed / moveDuration);

@@ -29,6 +29,8 @@ public class ChestOpen : MonoBehaviour
         if (other.CompareTag("PlayerSword") && !animDone)
         {
             chestLidAnimator.Play("chestOpening");
+            AudioManager.Instance.Play("ChestOpen", true);
+
             animDone = true;
             StartCoroutine(SpawnItemsAfterAnimation());
         }

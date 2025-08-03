@@ -3,7 +3,9 @@ using UnityEngine;
 public class DashState : PlayerState
 {
     public DashState(PlayerControllerS player, PlayerStateMachine stateMachine)
-        : base(player, stateMachine) { }
+        : base(player, stateMachine) {
+        AudioManager.Instance.Play("PlayerDash", true);
+    }
 
     public override void Enter()
     {

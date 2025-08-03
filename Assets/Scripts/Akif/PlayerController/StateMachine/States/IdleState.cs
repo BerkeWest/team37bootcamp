@@ -3,7 +3,10 @@ using UnityEngine;
 public class IdleState : PlayerState
 {
     public IdleState(PlayerControllerS player, PlayerStateMachine stateMachine)
-        : base(player, stateMachine) { }
+        : base(player, stateMachine) {
+    
+        AudioManager.Instance.Stop("Walk");
+    }
 
     public override void Enter()
     {

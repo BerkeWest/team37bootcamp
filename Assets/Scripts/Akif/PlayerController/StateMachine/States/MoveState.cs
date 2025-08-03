@@ -3,7 +3,9 @@ using UnityEngine;
 public class MoveState : PlayerState
 {
     public MoveState(PlayerControllerS player, PlayerStateMachine stateMachine)
-        : base(player, stateMachine) { }
+        : base(player, stateMachine) {
+        AudioManager.Instance.Play("Walk");
+    }
 
     public override void HandleInput()
     {
@@ -34,6 +36,7 @@ public class MoveState : PlayerState
 
         if (player.jumpBufferCounter > 0f && player.coyoteTimeCounter > 0f)
         {
+            AudioManager.Instance.Stop("Walk");
             stateMachine.ChangeState(new JumpState(player, stateMachine));
         }
 
