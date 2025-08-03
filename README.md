@@ -244,46 +244,39 @@
     <summary><h3>Sprint 3 - Game Screenshots</h3></summary>
   <table style="width: 100%;">
     <tr>
-      <td colspan="2" style="text-align: center;"><h2>Main Menu</h2></td>
+      <td colspan="4" style="text-align: center;"><h2>Menu & Win & Game Over</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/mainmenu.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/mainmenubasic (2).png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/mainMenu.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/settings.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/win.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/gameOver.png" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
-      <td colspan="2" style="text-align: center;"><h2>Lobby Map</h2></td>
+      <td colspan="4" style="text-align: center;"><h2>Lobby Map</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/lobby1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/merchant.gif" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/DungeonTP.gif" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/LabyrinthTP.gif" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
-      <td colspan="2" style="text-align: center;"><h2>Dungeon Map</h2></td>
+      <td colspan="4" style="text-align: center;"><h2>Dungeon Map</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/dungeon1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/dungeonTrapDoor.gif" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/dungeonTreasureRoom.gif" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/dungeonLeave.gif" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
-      <td colspan="2" style="text-align: center;"><h2>Labyrinth Map</h2></td>
+      <td colspan="3" style="text-align: center;"><h2>Labyrinth Map</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
-    </tr>
-    <tr>
-      <td colspan="2" style="text-align: center;"><h2>Merchant and Sell Mechanic</h2></td>
-    </tr>
-    <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
-    </tr>
-    <tr>
-      <td colspan="2" style="text-align: center;"><h2>Win & Game Over</h2></td>
-    </tr>
-    <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/mainmenu.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/mainmenubasic (2).png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/labyrinthKey.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/labyrinthTrapDoor.gif" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/Sprint3/gameSS/LobbyTPLabyrinth.gif" style="max-width: 100%; height: auto;"></td>
     </tr>
   </table>
   </details>   
