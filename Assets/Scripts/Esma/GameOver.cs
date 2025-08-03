@@ -23,6 +23,8 @@ public class GameOver : MonoBehaviour
     
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None; // Fareyi serbest b�rak (UI ile etkile�im i�in)
+        Cursor.visible = true; // Fareyi g�r�n�r yap
         Debug.Log("GameOver script started");
         SetupGameOver();
         SetupButtonListeners();
@@ -98,7 +100,7 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 1f;
         
         // Ana menüye geç
-        SceneManager.LoadScene("menu");
+        SceneManager.LoadScene("MainMenu");
     }
     
     // Yeni oyun başlat
@@ -110,7 +112,7 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 1f;
         
         // Oyun sahnesine geç (yeni oyun)
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Levels");
     }
     
     // Bu fonksiyon kahraman öldüğünde çağrılabilir

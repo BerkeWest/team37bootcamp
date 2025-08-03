@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Esma.unity
-    guid: c03cba314c9954f4e9c33cd2c6f63e51
+    path: Assets/Scenes/MainMenu.unity
+    guid: a69614aedd0ba7f42b34ffb298ee3d24
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Levels.unity
+    guid: 83e515a7f926241458cd9d67d0b31c50
+  - enabled: 1
+    path: Assets/Scenes/YouWin.unity
+    guid: bec09a94c9c117842b5b54034fba60eb
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 95a986ba9b3b95e459691aa74e0b91f5
   m_configObjects: {}
