@@ -561,6 +561,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1377529209}
     m_Modifications:
+    - target: {fileID: 540454973937026872, guid: c976ce23f9320ea41b3a52f093a7a5cd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 555406863}
+    - target: {fileID: 540454973937026872, guid: c976ce23f9320ea41b3a52f093a7a5cd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 573360298940114607, guid: c976ce23f9320ea41b3a52f093a7a5cd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -645,6 +653,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: YouWinPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 3652293645207441081, guid: c976ce23f9320ea41b3a52f093a7a5cd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1471791361, guid: d5a04ed37398232438601795ee620402, type: 3}
+    - target: {fileID: 4230299031011103664, guid: c976ce23f9320ea41b3a52f093a7a5cd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1471791361, guid: d5a04ed37398232438601795ee620402, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

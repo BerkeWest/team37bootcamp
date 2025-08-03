@@ -719,6 +719,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackToMainMenuButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7481269293406802649, guid: 0ad1e7aea13ee6a48a43dfb0556895ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1650344055}
+    - target: {fileID: 7481269293406802649, guid: 0ad1e7aea13ee6a48a43dfb0556895ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481269293406802649, guid: 0ad1e7aea13ee6a48a43dfb0556895ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameOver, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -735,6 +747,18 @@ PrefabInstance:
     - target: {fileID: 1977532157570406399, guid: 5889ffe4807d3a2449a709d4c2b75c82, type: 3}
       propertyPath: m_Name
       value: NewGameButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110029981627432321, guid: 5889ffe4807d3a2449a709d4c2b75c82, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1650344055}
+    - target: {fileID: 2110029981627432321, guid: 5889ffe4807d3a2449a709d4c2b75c82, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartNewGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110029981627432321, guid: 5889ffe4807d3a2449a709d4c2b75c82, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameOver, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9043362809212799354, guid: 5889ffe4807d3a2449a709d4c2b75c82, type: 3}
       propertyPath: m_Pivot.x
