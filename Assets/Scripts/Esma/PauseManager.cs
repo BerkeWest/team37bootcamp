@@ -54,10 +54,14 @@ public class PauseManager : MonoBehaviour
         if (isPaused)
         {
             ResumeGame();
+            Cursor.lockState = CursorLockMode.Locked; // Fareyi oyun penceresine kilitle
+            Cursor.visible = false; // Fareyi gizle
         }
         else
         {
             PauseGame();
+            Cursor.lockState = CursorLockMode.None; // Fareyi serbest b�rak (UI ile etkile�im i�in)
+            Cursor.visible = true; // Fareyi g�r�n�r yap
         }
     }
     
@@ -107,7 +111,7 @@ public class PauseManager : MonoBehaviour
         isPaused = false;
         
         // Ana menüye dön
-        SceneManager.LoadScene("menu");
+        SceneManager.LoadScene("MainMenu");
     }
     
     // Test için

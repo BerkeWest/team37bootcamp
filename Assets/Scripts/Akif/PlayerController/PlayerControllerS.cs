@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.IO.LowLevel.Unsafe;
 using Unity.Services.Analytics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerControllerS : MonoBehaviour
@@ -148,6 +149,8 @@ public class PlayerControllerS : MonoBehaviour
         animator.SetTrigger("die");
         controller.enabled = false;
         GetComponent<Collider>().enabled = false;
+        new WaitForSeconds(1f);
+        SceneManager.LoadScene("GameOver");
         //this.enabled = false;
     }
 

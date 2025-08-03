@@ -1,101 +1,101 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // TextMeshProUGUI için gerekli
-using UnityEngine.UI; // UI elemanlarý için (Image, Panel vb.) gerekli
+using TMPro; // TextMeshProUGUI iï¿½in gerekli
+using UnityEngine.UI; // UI elemanlarï¿½ iï¿½in (Image, Panel vb.) gerekli
 
 public class DisplayInventory : MonoBehaviour
 {
-    // Bu, Unity'deki Envanter Ekranýnýzýn ana paneli olacak.
-    // Unity'de bu script'i attýðýnýz yerde, bu boþluðu doldurmanýz gerekecek.
+    // Bu, Unity'deki Envanter Ekranï¿½nï¿½zï¿½n ana paneli olacak.
+    // Unity'de bu script'i attï¿½ï¿½ï¿½nï¿½z yerde, bu boï¿½luï¿½u doldurmanï¿½z gerekecek.
     public GameObject inventoryPanel;
     public InventoryObject inventory; // Envanter verilerini tutan ScriptableObject
 
-    public TextMeshProUGUI goldText; // <<< YENÝ EKLENEN SATIR: Altýn miktarýný gösterecek TextMeshPro objesi <<<
+    public TextMeshProUGUI goldText; // <<< YENï¿½ EKLENEN SATIR: Altï¿½n miktarï¿½nï¿½ gï¿½sterecek TextMeshPro objesi <<<
 
-    public int X_START; // Ýlk item'ýn X baþlangýç pozisyonu
-    public int Y_START; // Ýlk item'ýn Y baþlangýç pozisyonu
-    public int X_SPACE_BETWEEN_ITEM; // Item'lar arasý X boþluðu
-    public int NUMBER_OF_COLUMN; // Bir satýrdaki item sütun sayýsý
-    public int Y_SPACE_BETWEEN_ITEMS; // Item'lar arasý Y boþluðu (satýrlar arasý)
+    public int X_START; // ï¿½lk item'ï¿½n X baï¿½langï¿½ï¿½ pozisyonu
+    public int Y_START; // ï¿½lk item'ï¿½n Y baï¿½langï¿½ï¿½ pozisyonu
+    public int X_SPACE_BETWEEN_ITEM; // Item'lar arasï¿½ X boï¿½luï¿½u
+    public int NUMBER_OF_COLUMN; // Bir satï¿½rdaki item sï¿½tun sayï¿½sï¿½
+    public int Y_SPACE_BETWEEN_ITEMS; // Item'lar arasï¿½ Y boï¿½luï¿½u (satï¿½rlar arasï¿½)
 
-    // Envanterdeki slotlarý ve bunlara karþýlýk gelen UI GameObject'lerini tutar
+    // Envanterdeki slotlarï¿½ ve bunlara karï¿½ï¿½lï¿½k gelen UI GameObject'lerini tutar
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
 
-    // Envanterin o an açýk olup olmadýðýný tutan bayrak
+    // Envanterin o an aï¿½ï¿½k olup olmadï¿½ï¿½ï¿½nï¿½ tutan bayrak
     private bool isInventoryOpen = false;
 
     void Start()
     {
-        // Baþlangýçta envanter panelini gizle.
+        // Baï¿½langï¿½ï¿½ta envanter panelini gizle.
         if (inventoryPanel != null)
         {
             inventoryPanel.SetActive(false); // Paneli kapat (gizle)
         }
 
-        // Oyun baþladýðýnda fare imlecini gizle ve hareketini kýsýtla.
+        // Oyun baï¿½ladï¿½ï¿½ï¿½nda fare imlecini gizle ve hareketini kï¿½sï¿½tla.
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // Altýn miktarýný her oyun baþladýðýnda sýfýrla.
+        // Altï¿½n miktarï¿½nï¿½ her oyun baï¿½ladï¿½ï¿½ï¿½nda sï¿½fï¿½rla.
         if (inventory != null)
         {
-            inventory.gold = 0; // <<< YENÝ EKLENEN SATIR: Altýný sýfýrla! <<<
+            inventory.gold = 0; // <<< YENï¿½ EKLENEN SATIR: Altï¿½nï¿½ sï¿½fï¿½rla! <<<
         }
 
-        // Envanterin baþlangýçtaki durumunu (varsa itemleri) ekrana yansýt.
+        // Envanterin baï¿½langï¿½ï¿½taki durumunu (varsa itemleri) ekrana yansï¿½t.
         CreateDisplay();
 
-        // Altýn textini baþlangýçta da güncelle (sýfýrlanmýþ deðeri göstersin).
-        UpdateGoldText(); // <<< YENÝ EKLENEN ÇAÐRI <<<
+        // Altï¿½n textini baï¿½langï¿½ï¿½ta da gï¿½ncelle (sï¿½fï¿½rlanmï¿½ï¿½ deï¿½eri gï¿½stersin).
+        UpdateGoldText(); // <<< YENï¿½ EKLENEN ï¿½Aï¿½RI <<<
 
-        // DEBUG: Oyun baþladýðýnda konsola yaz
-        Debug.Log("DisplayInventory script'i baþladý. Envanter kapalý.");
+        // DEBUG: Oyun baï¿½ladï¿½ï¿½ï¿½nda konsola yaz
+        Debug.Log("DisplayInventory script'i baï¿½ladï¿½. Envanter kapalï¿½.");
     }
 
     void Update()
     {
-        // 'E' tuþuna basýldýðýnda
+        // 'E' tuï¿½una basï¿½ldï¿½ï¿½ï¿½nda
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // DEBUG: 'E' tuþuna basýldýðýný konsola yaz
-            Debug.Log("E tuþuna basýldý!");
-            ToggleInventory(); // Envanteri açma/kapama fonksiyonunu çaðýr
+            // DEBUG: 'E' tuï¿½una basï¿½ldï¿½ï¿½ï¿½nï¿½ konsola yaz
+            Debug.Log("E tuï¿½una basï¿½ldï¿½!");
+            ToggleInventory(); // Envanteri aï¿½ma/kapama fonksiyonunu ï¿½aï¿½ï¿½r
         }
 
-        // Sadece envanter açýksa ve her karede UI'yý güncelle
+        // Sadece envanter aï¿½ï¿½ksa ve her karede UI'yï¿½ gï¿½ncelle
         if (isInventoryOpen)
         {
             UpdateDisplay();
-            // Altýn textini envanter açýkken sürekli güncelle (altýn kazandýkça deðiþimi gör)
-            UpdateGoldText(); // <<< YENÝ EKLENEN ÇAÐRI <<<
+            // Altï¿½n textini envanter aï¿½ï¿½kken sï¿½rekli gï¿½ncelle (altï¿½n kazandï¿½kï¿½a deï¿½iï¿½imi gï¿½r)
+            UpdateGoldText(); // <<< YENï¿½ EKLENEN ï¿½Aï¿½RI <<<
         }
     }
 
-    // Envanter panelini açýp kapatan ana fonksiyon.
+    // Envanter panelini aï¿½ï¿½p kapatan ana fonksiyon.
     public void ToggleInventory()
     {
-        isInventoryOpen = !isInventoryOpen; // isInventoryOpen deðerini tersine çevir
+        isInventoryOpen = !isInventoryOpen; // isInventoryOpen deï¿½erini tersine ï¿½evir
 
-        // Envanter panelinin aktifliðini (görünürlüðünü) ayarla.
+        // Envanter panelinin aktifliï¿½ini (gï¿½rï¿½nï¿½rlï¿½ï¿½ï¿½nï¿½) ayarla.
         if (inventoryPanel != null)
         {
             inventoryPanel.SetActive(isInventoryOpen);
-            Debug.Log("Envanter panelinin durumu deðiþti: " + (isInventoryOpen ? "Açýk" : "Kapalý")); // DEBUG mesajý
+            Debug.Log("Envanter panelinin durumu deï¿½iï¿½ti: " + (isInventoryOpen ? "Aï¿½ï¿½k" : "Kapalï¿½")); // DEBUG mesajï¿½
         }
         else
         {
-            // DEBUG: inventoryPanel'in atanmadýðýný konsola yaz (çok önemli!)
-            Debug.LogError("Hata: inventoryPanel atanmamýþ! Lütfen InventoryScreen objesini Inspector'dan sürükleyip býrakýn.");
+            // DEBUG: inventoryPanel'in atanmadï¿½ï¿½ï¿½nï¿½ konsola yaz (ï¿½ok ï¿½nemli!)
+            Debug.LogError("Hata: inventoryPanel atanmamï¿½ï¿½! Lï¿½tfen InventoryScreen objesini Inspector'dan sï¿½rï¿½kleyip bï¿½rakï¿½n.");
         }
 
-        // Fare imlecinin davranýþýný ayarla.
+        // Fare imlecinin davranï¿½ï¿½ï¿½nï¿½ ayarla.
         if (isInventoryOpen)
         {
-            Cursor.lockState = CursorLockMode.None; // Fareyi serbest býrak (UI ile etkileþim için)
-            Cursor.visible = true; // Fareyi görünür yap
+            Cursor.lockState = CursorLockMode.None; // Fareyi serbest bï¿½rak (UI ile etkileï¿½im iï¿½in)
+            Cursor.visible = true; // Fareyi gï¿½rï¿½nï¿½r yap
             // DEBUG: Fare imleci durumunu konsola yaz
-            Debug.Log("Fare imleci serbest ve görünür.");
+            Debug.Log("Fare imleci serbest ve gï¿½rï¿½nï¿½r.");
         }
         else
         {
@@ -106,92 +106,92 @@ public class DisplayInventory : MonoBehaviour
         }
     }
 
-    // Envanterdeki item'larý ilk kez ekranda gösterir.
+    // Envanterdeki item'larï¿½ ilk kez ekranda gï¿½sterir.
     public void CreateDisplay()
     {
-        // Önceki gösterilen item'larý temizle (varsa)
+        // ï¿½nceki gï¿½sterilen item'larï¿½ temizle (varsa)
         foreach (var obj in itemsDisplayed.Values)
         {
             Destroy(obj);
         }
         itemsDisplayed.Clear();
 
-        // Envanterdeki her bir item için UI elemanýný oluþtur.
+        // Envanterdeki her bir item iï¿½in UI elemanï¿½nï¿½ oluï¿½tur.
         for (int i = 0; i < inventory.Container.Count; i++)
         {
             InventorySlot currentSlot = inventory.Container[i];
 
-            // Item'ýn prefab'inden yeni bir UI objesi oluþtur.
-            // ÖNEMLÝ DEÐÝÞÝKLÝK BURADA: 'transform' yerine 'inventoryPanel.transform' kullanýyoruz.
+            // Item'ï¿½n prefab'inden yeni bir UI objesi oluï¿½tur.
+            // ï¿½NEMLï¿½ DEï¿½ï¿½ï¿½ï¿½KLï¿½K BURADA: 'transform' yerine 'inventoryPanel.transform' kullanï¿½yoruz.
             var obj = Instantiate(currentSlot.item.prefab, Vector3.zero, Quaternion.identity, inventoryPanel.transform);
 
-            // Bu satýr, UI olaylarýný (mouse etkileþimi gibi) algýlamasýný saðlar.
+            // Bu satï¿½r, UI olaylarï¿½nï¿½ (mouse etkileï¿½imi gibi) algï¿½lamasï¿½nï¿½ saï¿½lar.
             obj.AddComponent<CanvasGroup>().blocksRaycasts = true;
 
-            // Item'ýn ekrandaki pozisyonunu ayarla.
+            // Item'ï¿½n ekrandaki pozisyonunu ayarla.
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
-            // Item'ýn miktarýný gösteren TextMeshPro yazýsýný güncelle.
-            // Emin olun ki item prefab'inizin içinde bir TextMeshProUGUI bileþeni var.
+            // Item'ï¿½n miktarï¿½nï¿½ gï¿½steren TextMeshPro yazï¿½sï¿½nï¿½ gï¿½ncelle.
+            // Emin olun ki item prefab'inizin iï¿½inde bir TextMeshProUGUI bileï¿½eni var.
             TextMeshProUGUI amountText = obj.GetComponentInChildren<TextMeshProUGUI>();
             if (amountText != null)
             {
-                amountText.text = currentSlot.amount.ToString("n0"); // "n0" formatý, binlik ayýrýcý olmadan sayý gösterir.
+                amountText.text = currentSlot.amount.ToString("n0"); // "n0" formatï¿½, binlik ayï¿½rï¿½cï¿½ olmadan sayï¿½ gï¿½sterir.
             }
             else
             {
-                Debug.LogWarning($"Uyarý: {currentSlot.item.name} prefab'inde TextMeshProUGUI bulunamadý!");
+                Debug.LogWarning($"Uyarï¿½: {currentSlot.item.name} prefab'inde TextMeshProUGUI bulunamadï¿½!");
             }
 
-            // Gösterilen item'lar listesine ekle.
+            // Gï¿½sterilen item'lar listesine ekle.
             itemsDisplayed.Add(currentSlot, obj);
         }
     }
 
-    // Envanterdeki item'larý günceller (miktar deðiþince, yeni item eklenince vb.)
+    // Envanterdeki item'larï¿½ gï¿½nceller (miktar deï¿½iï¿½ince, yeni item eklenince vb.)
     public void UpdateDisplay()
     {
-        // UI'dan kaldýrýlmasý gereken item'larý bul
+        // UI'dan kaldï¿½rï¿½lmasï¿½ gereken item'larï¿½ bul
         List<InventorySlot> slotsToRemove = new List<InventorySlot>();
         foreach (var entry in itemsDisplayed)
         {
-            // Eðer bu slot artýk envanterde yoksa veya miktarý 0 ise (isteðe baðlý)
+            // Eï¿½er bu slot artï¿½k envanterde yoksa veya miktarï¿½ 0 ise (isteï¿½e baï¿½lï¿½)
             if (!inventory.Container.Contains(entry.Key) || entry.Key.amount <= 0)
             {
                 slotsToRemove.Add(entry.Key);
             }
         }
 
-        // Bulunan item'larý kaldýr
+        // Bulunan item'larï¿½ kaldï¿½r
         foreach (var slot in slotsToRemove)
         {
-            if (itemsDisplayed.ContainsKey(slot) && itemsDisplayed[slot] != null) // Zaten silinmiþ olmamasý için kontrol
+            if (itemsDisplayed.ContainsKey(slot) && itemsDisplayed[slot] != null) // Zaten silinmiï¿½ olmamasï¿½ iï¿½in kontrol
             {
                 Destroy(itemsDisplayed[slot]); // GameObject'i sahneden sil
             }
-            itemsDisplayed.Remove(slot); // Dictionary'den kaldýr
+            itemsDisplayed.Remove(slot); // Dictionary'den kaldï¿½r
         }
 
-        // Envanterdeki her bir item için UI'yý güncelle veya yeniden oluþtur
+        // Envanterdeki her bir item iï¿½in UI'yï¿½ gï¿½ncelle veya yeniden oluï¿½tur
         for (int i = 0; i < inventory.Container.Count; i++)
         {
             InventorySlot currentSlot = inventory.Container[i];
 
-            if (itemsDisplayed.ContainsKey(currentSlot)) // Eðer item zaten ekranda gösteriliyorsa
+            if (itemsDisplayed.ContainsKey(currentSlot)) // Eï¿½er item zaten ekranda gï¿½steriliyorsa
             {
-                // Miktarýný güncelle
+                // Miktarï¿½nï¿½ gï¿½ncelle
                 TextMeshProUGUI amountText = itemsDisplayed[currentSlot].GetComponentInChildren<TextMeshProUGUI>();
                 if (amountText != null)
                 {
                     amountText.text = currentSlot.amount.ToString("n0");
                 }
-                // Pozisyonunu da güncelle, çünkü sýra deðiþmiþ olabilir.
+                // Pozisyonunu da gï¿½ncelle, ï¿½ï¿½nkï¿½ sï¿½ra deï¿½iï¿½miï¿½ olabilir.
                 itemsDisplayed[currentSlot].GetComponent<RectTransform>().localPosition = GetPosition(i);
             }
-            else // Item yeni eklendiyse veya daha önce gösterilmediyse
+            else // Item yeni eklendiyse veya daha ï¿½nce gï¿½sterilmediyse
             {
-                // Yeni UI objesi oluþtur
-                // ÖNEMLÝ DEÐÝÞÝKLÝK BURADA: 'transform' yerine 'inventoryPanel.transform' kullanýyoruz.
+                // Yeni UI objesi oluï¿½tur
+                // ï¿½NEMLï¿½ DEï¿½ï¿½ï¿½ï¿½KLï¿½K BURADA: 'transform' yerine 'inventoryPanel.transform' kullanï¿½yoruz.
                 var obj = Instantiate(currentSlot.item.prefab, Vector3.zero, Quaternion.identity, inventoryPanel.transform);
                 obj.AddComponent<CanvasGroup>().blocksRaycasts = true;
                 obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
@@ -206,34 +206,34 @@ public class DisplayInventory : MonoBehaviour
         }
     }
 
-    // <<< YENÝ EKLENEN FONKSÝYON: Altýn textini güncellemek için! <<<
+    // <<< YENï¿½ EKLENEN FONKSï¿½YON: Altï¿½n textini gï¿½ncellemek iï¿½in! <<<
     public void UpdateGoldText()
     {
         if (goldText != null && inventory != null)
         {
-            goldText.text = inventory.gold.ToString(); // InventoryObject'teki 'gold' deðerini stringe çevirip text'e ata
+            goldText.text = inventory.gold.ToString(); // InventoryObject'teki 'gold' deï¿½erini stringe ï¿½evirip text'e ata
         }
         else if (goldText == null)
         {
-            Debug.LogWarning("Uyarý: goldText objesi DisplayInventory script'ine atanmamýþ!");
+            Debug.LogWarning("Uyarï¿½: goldText objesi DisplayInventory script'ine atanmamï¿½ï¿½!");
         }
         else if (inventory == null)
         {
-            Debug.LogError("Hata: InventoryObject DisplayInventory script'ine atanmamýþ!");
+            Debug.LogError("Hata: InventoryObject DisplayInventory script'ine atanmamï¿½ï¿½!");
         }
     }
 
 
-    // Item'ýn envanterdeki pozisyonunu hesaplar (ýzgara mantýðý)
+    // Item'ï¿½n envanterdeki pozisyonunu hesaplar (ï¿½zgara mantï¿½ï¿½ï¿½)
     public Vector3 GetPosition(int i)
     {
-        // Formül: Baþlangýç X + (Item'ýn sütun numarasý * Sütunlar arasý boþluk)
-        // Baþlangýç Y + (Item'ýn satýr numarasý * Satýrlar arasý boþluk)
-        // Sýfýra bölme hatasýný önlemek için NUMBER_OF_COLUMN kontrolü
+        // Formï¿½l: Baï¿½langï¿½ï¿½ X + (Item'ï¿½n sï¿½tun numarasï¿½ * Sï¿½tunlar arasï¿½ boï¿½luk)
+        // Baï¿½langï¿½ï¿½ Y + (Item'ï¿½n satï¿½r numarasï¿½ * Satï¿½rlar arasï¿½ boï¿½luk)
+        // Sï¿½fï¿½ra bï¿½lme hatasï¿½nï¿½ ï¿½nlemek iï¿½in NUMBER_OF_COLUMN kontrolï¿½
         if (NUMBER_OF_COLUMN == 0)
         {
-            Debug.LogError("Hata: NUMBER_OF_COLUMN 0 olamaz! Lütfen DisplayInventory script'inde doðru bir deðer girin.");
-            return Vector3.zero; // Hata durumunda varsayýlan bir deðer döndür
+            Debug.LogError("Hata: NUMBER_OF_COLUMN 0 olamaz! Lï¿½tfen DisplayInventory script'inde doï¿½ru bir deï¿½er girin.");
+            return Vector3.zero; // Hata durumunda varsayï¿½lan bir deï¿½er dï¿½ndï¿½r
         }
 
         return new Vector3(X_START + (X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN)),

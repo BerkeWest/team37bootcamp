@@ -11,8 +11,16 @@ public class MapLoad1 : MonoBehaviour
     public int dungeonEnemyCount = 12;
     [SerializeField] private Transform[] dungeonEnemySpawnPoints;
     public int labyrinthEnemyCount = 12;
-    [SerializeField] private Transform[] labyrinthEnemySpawnPoints; 
-    
+    [SerializeField] private Transform[] labyrinthEnemySpawnPoints;
+
+    void Start()
+    {
+        if (dungeonEnemyCount != null && labyrinthEnemyCount != null)
+        {
+            dungeonEnemyCount = menu.dungeonEnemyCount;
+            labyrinthEnemyCount = menu.labyrinthEnemyCount;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         PlayerControllerS player = other.GetComponent<PlayerControllerS>();
@@ -50,6 +58,7 @@ public class MapLoad1 : MonoBehaviour
             availableIndices.RemoveAt(randomIndex);
             
             GameObject newEnemy = Instantiate(enemyPrefab, enemySpawnPoints[spawnIndex].position, enemySpawnPoints[spawnIndex].rotation);
+            
             GameObjectManager.Instance?.spawnedEnemies.Add(newEnemy);
         }
     }

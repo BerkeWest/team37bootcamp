@@ -12,6 +12,8 @@ public class YouWin : MonoBehaviour
     
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None; // Fareyi serbest b�rak (UI ile etkile�im i�in)
+        Cursor.visible = true; // Fareyi g�r�n�r yap
         Debug.Log("YouWin script started");
         SetupButtonListeners();
         
@@ -44,14 +46,14 @@ public class YouWin : MonoBehaviour
     {
         Debug.Log("Returning to main menu from You Win");
         Time.timeScale = 1f; // Zamanı normale döndür
-        SceneManager.LoadScene("menu");
+        SceneManager.LoadScene("MainMenu");
     }
     
     void StartNewGame()
     {
         Debug.Log("Starting new game from You Win");
         Time.timeScale = 1f; // Zamanı normale döndür
-        SceneManager.LoadScene("SampleScene"); // İlk oyun sahnesine git
+        SceneManager.LoadScene("Levels"); // İlk oyun sahnesine git
     }
     
     void StartYouWinAnimation()

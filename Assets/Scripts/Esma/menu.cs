@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -22,6 +23,9 @@ public class menu : MonoBehaviour
     public Toggle fullscreenToggle;
     public TMPro.TMP_Dropdown dropdownGraphics;
     public TMPro.TMP_Dropdown dropdownDifficulty;
+    
+    public static int dungeonEnemyCount;
+    public static int labyrinthEnemyCount;
     
     [Header("Pause Menu")]
     public Button resumeButton;
@@ -285,7 +289,7 @@ public class menu : MonoBehaviour
     {
         Debug.Log("Play button clicked - Starting new game");
         // Yeni oyun başlat
-        SceneManager.LoadScene("SampleScene"); // SampleScene sahnesine git
+        SceneManager.LoadScene("Levels"); // SampleScene sahnesine git
     }
     
 
@@ -428,27 +432,36 @@ public class menu : MonoBehaviour
 
     public void OnDifficultyDropdownChanged(int value)
     {
+        
         // value: 0 = Easy, 1 = Normal, 2 = Hard
         switch (value)
         {
             case 0: // Easy
                 PlayerPrefs.SetInt("Difficulty", 0);
                 PlayerPrefs.SetFloat("EnemyDamage", 10f); // Düşük hasar
+                dungeonEnemyCount = 6;
+                labyrinthEnemyCount = 25;
                 Debug.Log("Difficulty set to: Easy - Enemy Damage: 10");
                 break;
             case 1: // Normal
                 PlayerPrefs.SetInt("Difficulty", 1);
                 PlayerPrefs.SetFloat("EnemyDamage", 20f); // Normal hasar
+                dungeonEnemyCount = 12;
+                labyrinthEnemyCount = 45;
                 Debug.Log("Difficulty set to: Normal - Enemy Damage: 20");
                 break;
             case 2: // Hard
                 PlayerPrefs.SetInt("Difficulty", 2);
                 PlayerPrefs.SetFloat("EnemyDamage", 35f); // Yüksek hasar
+                dungeonEnemyCount = 18;
+                labyrinthEnemyCount = 65;
                 Debug.Log("Difficulty set to: Hard - Enemy Damage: 35");
                 break;
             default:
                 PlayerPrefs.SetInt("Difficulty", 1); // Default to Normal
                 PlayerPrefs.SetFloat("EnemyDamage", 20f); // Default normal hasar
+                dungeonEnemyCount = 12;
+                labyrinthEnemyCount = 45;
                 Debug.Log("Difficulty set to: Normal (default) - Enemy Damage: 20");
                 break;
         }
