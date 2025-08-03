@@ -49,9 +49,16 @@ public class HealthBar : MonoBehaviour
 
         lerpTimer += Time.deltaTime;
 
-        if (lerpTimer >= delay && backBar.fillAmount > frontBar.fillAmount)
+        if (lerpTimer >= delay)
         {
-            backBar.fillAmount = Mathf.Lerp(backBar.fillAmount, frontBar.fillAmount, smoothSpeed);
+            if (backBar.fillAmount > frontBar.fillAmount)
+            {
+                backBar.fillAmount = Mathf.Lerp(backBar.fillAmount, frontBar.fillAmount, smoothSpeed);
+            }
+            else if (backBar.fillAmount < frontBar.fillAmount)
+            {
+                backBar.fillAmount = frontBar.fillAmount;
+            }
         }
     }
 }

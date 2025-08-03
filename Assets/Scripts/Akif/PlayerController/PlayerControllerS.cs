@@ -109,6 +109,16 @@ public class PlayerControllerS : MonoBehaviour
         if (isDead || isHit || isDashing) return;
 
         currentHealth -= damage;
+
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+        else if (currentHealth > maxHealth) 
+        {
+            currentHealth = maxHealth;
+        }
+
         healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
