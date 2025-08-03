@@ -283,52 +283,56 @@
 
   <details>
     <summary><h3>Sprint 3 - Sprint Board Update Screenshots</h3></summary>
-    <img src="bootcampFiles/sprint1/tasks/1.jpeg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprint1/tasks/2.jpeg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprint1/tasks/3.jpeg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprint1/tasks/4.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/Sprint3/tasks/1.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/Sprint3/tasks/2.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/Sprint3/tasks/3.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/Sprint3/tasks/4.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/Sprint3/tasks/5.png" style="max-width: 100%; height: auto;">
 
   </details>
 
   <details>
     <summary><h3>Sprint 3 - General Tasks and Completion Rates</h3></summary>
-    <img src="bootcampFiles/sprint1/s1general.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/Sprint3/s3general.png" style="max-width: 100%; height: auto;">
   </details>
 
   - **Sprint Notes**:
-    - 
-  - **Expected point completion within Sprint:** 50 points
-  - **Actual point completion within Sprint:** 63 points
+    - We had a meeting to combine our separate works and created a plan on how we move forward.
+    - Collaborated a lot in Discord to make sure there was no conflict when we combined our work.
+  - **Expected point completion within Sprint:** 150 points
+  - **Actual point completion within Sprint:** 229 points
   - **Point Completion Logic:** Every general task has some sub-tasks. We point tasks from 1 to 10 based on how hard or time-consuming they are. Each member gets a task based on their schedule and skill.
 
   - **Sprint Review:**
-    - 
+    - This was our most effective sprint.
+    - Made huge progress to meet our criteria.
+    - Completed a playable game with multiple maps and different difficulties.
 
   - **Lobby Development:**
-    - A two floor lobby was created.
-    - Bottom floor contains decors, a training dummy, player spawn point and a portal room to travel through other maps.
-    - Top floor contains a rich merchant area with a large mage skeleton. There is also a prisoner mage to show the merchants evil design.
-    - To win the game, there is a sell zone area around merchant. Here you can open a sell all button in inventory and based on the difficulty, if the gold is enough to pay off debt, you are taken to the win screen.
-    - The lobby portal takes the character into either the dungeon map or the labyrinth map. Based on our teleportation, portal spawns enemies into that maps enemy spawn points randomly. The amount of the enemies are determined by the difficulty settings.
+    - A two-floor lobby was created.
+    - Bottom floor contains decor, a training dummy, player spawn point, and a portal room to travel through other maps.
+    - The top floor contains a rich merchant area with a large mage skeleton. There is also a prisoner mage to show the merchant's evil design.
+    - To win the game, there is a sell zone area around the  merchant. Here you can open a sell all button in inventor, and based on the difficulty, if the gold is enough to pay off debt, you are taken to the win screen.
+    - The lobby portal takes the character into either the dungeon map or the labyrinth map. Based on our teleportation, the  portal spawns enemies into the map's enemy spawn points randomly. The number of enemies is determined by the difficulty settings.
       
 - **Dungeon Development:**
-    - Dungeon is the small but crowded map.
-    - Chests in the map can be opened once per teleportation and it spawns items for player to collect.
+    - The dungeon is a small but crowded map.
+    - Chests in the map can be opened once per teleportation, and they spawn items for the player to collect.
     - Enemies can be killed to increase our loot.
     - Both enemies and chests spawn items based on their lootpools. Chests contain more items.
-    - By triggering some torches, trap doors can trigger to unlock more ways to loot.
-    - By collecting the key on the table, players can enter the treasure room for many more loot.
-    - Dungeons portal destroys the enemies left alive, and resets the key, locked door, trap door, and chests.
+    - By triggering some torches, trap doors can be triggered to provide more ways to loot.
+    - By collecting the key on the table, players can enter the treasure room for more loot.
+    - dungeon portal destroys the enemies left alive and resets the key, locked door, trap door, and chests.
 
-  - **Labyrinth Development:**
-    - Labyrinth is the large and confusing map.
-    - Due to its large size enemy count is increased. While some rooms are empty some might be full of skeletons.
-    - You need to find the key in the large labyrinth to be able to go to portal room to escape.
-    - Like the dungeon, it also has many chests, a treasure room with trap door and many enemies to kill.
+- **Labyrinth Development:**
+    - The labyrinth is a large and confusing map.
+    - Due to its large size enemy count is increased. While some rooms are empty, some might be full of skeletons.
+    - You need to find the key in the large labyrinth to be able to go to the  portal room to escape.
+    - Like the dungeon, it also has many chests, a treasure room with a trap door, and many enemies to kill.
    
-  - **Sprint Retrospective:**
-    - We left so much work for the last week. For our later projects, we must work harder and not let the deadlines fool us.
-    - Still, we managed to complete a lot of work, and the final product was satisfying.
+- **Sprint Retrospective:**
+    - We managed to finish our game. The end product was satisfying. It could still have more improvements, but for how much effort we put into the game this sprint, it is pretty successful.
+    - For our future projects, we need to put this much effort into every sprint, and we can make so much more.
 
   </details>
 
