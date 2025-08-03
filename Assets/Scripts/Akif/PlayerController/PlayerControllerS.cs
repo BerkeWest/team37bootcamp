@@ -143,7 +143,7 @@ public class PlayerControllerS : MonoBehaviour
         isHit = false;
     }
 
-    private void Die()
+    public void Die()
     {
         isDead = true;
         animator.SetTrigger("die");

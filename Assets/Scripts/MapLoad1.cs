@@ -15,7 +15,7 @@ public class MapLoad1 : MonoBehaviour
 
     void Start()
     {
-        if (dungeonEnemyCount != null && labyrinthEnemyCount != null)
+        if (menu.dungeonEnemyCount != 0 && menu.labyrinthEnemyCount != 0)
         {
             dungeonEnemyCount = menu.dungeonEnemyCount;
             labyrinthEnemyCount = menu.labyrinthEnemyCount;
