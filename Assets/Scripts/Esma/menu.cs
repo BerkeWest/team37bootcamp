@@ -85,7 +85,17 @@ public class menu : MonoBehaviour
             SceneManager.LoadScene("menu");
         }
     }
-    
+
+    public void OnMusicSliderChanged(Slider slider)
+    {
+        AudioManager.Instance.SetMusicVolume(slider.value);
+    }
+
+    public void OnSFXSliderChanged(Slider slider)
+    {
+        AudioManager.Instance.SetGeneralVolume(slider.value);
+    }
+
     void SetupMenu()
     {
         // Menü panellerini başlangıçta gizle
