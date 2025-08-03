@@ -57,7 +57,7 @@ public class EnemyController : MonoBehaviour
 
         if (player == null) return;
 
-        if (isAttacking) return;
+
 
         if (!isChasing)
         {
@@ -71,6 +71,8 @@ public class EnemyController : MonoBehaviour
                 return;
             }
             MoveToPlayer();
+
+            if (isAttacking) return;
             TryStartAttack();
         }
     }
@@ -151,9 +153,12 @@ public class EnemyController : MonoBehaviour
         agent.isStopped = true;
 
         yield return new WaitForSeconds(0.55f); // animasyon süresine göre ayarla
-        EnableAttackCollider();
-        AudioManager.Instance.Play("EnemyAttack", true);
+        if (!isHit && !isDead)
+        {
+            EnableAttackCollider();
+            AudioManager.Instance.Play("EnemyAttack", true);
 
+        }
 
         yield return new WaitForSeconds(0.2f); // hasar anı
         DisableAttackCollider();
