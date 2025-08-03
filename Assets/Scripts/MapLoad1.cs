@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapLoad : MonoBehaviour
+public class MapLoad1 : MonoBehaviour
 {
-    [SerializeField] private Transform lobbySpawnPoint;
     [SerializeField] private Transform dungeonSpawnPoint;
     [SerializeField] private Transform labyrinthSpawnPoint;
-    
-    private bool inLobby = true;
     
     public GameObject enemyPrefab;
     public int dungeonEnemyCount = 12;
@@ -16,41 +13,30 @@ public class MapLoad : MonoBehaviour
     public int labyrinthEnemyCount = 12;
     [SerializeField] private Transform[] labyrinthEnemySpawnPoints; 
     
-    private List<GameObject> spawnedEnemies = new List<GameObject>();
-    
     private void OnTriggerEnter(Collider other)
     {
-        if (inLobby && other.CompareTag("Player"))
+        PlayerControllerS player = other.GetComponent<PlayerControllerS>();
+        if (other.CompareTag("Player"))
         {
             int destination = Random.Range(0, 2);
 
             if (destination == 0)
             {
-                other.GetComponent<PlayerControllerS>().GoToPosition(dungeonSpawnPoint);
+                player.GoToPosition(dungeonSpawnPoint);
                 Debug.Log("Teleporting to Dungeon");
                 SpawnEnemies(dungeonEnemySpawnPoints, dungeonEnemyCount);
             }
             else
             {
-                other.GetComponent<PlayerControllerS>().GoToPosition(labyrinthSpawnPoint);
+                player.GoToPosition(labyrinthSpawnPoint);
                 Debug.Log("Teleporting to Labyrinth");
                 SpawnEnemies(labyrinthEnemySpawnPoints, labyrinthEnemyCount);
             }
-            inLobby = false;
-        }
-        else if (!inLobby && other.CompareTag("Player"))
-        {
-            other.GetComponent<PlayerControllerS>().GoToPosition(lobbySpawnPoint);
-            Debug.Log("Teleporting back to Lobby");
-            ClearEnemies();
-            inLobby = true;
         }
     }
     
     private void SpawnEnemies(Transform[] enemySpawnPoints, int enemyCount)
     {
-        ClearEnemies(); 
-
         List<int> availableIndices = new List<int>();
         for (int i = 0; i < enemySpawnPoints.Length; i++)
         {
@@ -64,19 +50,6 @@ public class MapLoad : MonoBehaviour
             availableIndices.RemoveAt(randomIndex);
             
             GameObject newEnemy = Instantiate(enemyPrefab, enemySpawnPoints[spawnIndex].position, enemySpawnPoints[spawnIndex].rotation);
-            spawnedEnemies.Add(newEnemy); 
         }
-    }
-    
-    private void ClearEnemies()
-    {
-        foreach (GameObject enemy in spawnedEnemies)
-        {
-            if (enemy != null)
-            {
-                Destroy(enemy);
-            }
-        }
-        spawnedEnemies.Clear();
     }
 }
