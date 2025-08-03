@@ -17,6 +17,8 @@ public class ChestOpen : MonoBehaviour
     private void Start()
     {
         groundY = transform.position.y;
+        GameObjectManager.Instance?.allChests.Add(this);
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -70,4 +72,11 @@ public class ChestOpen : MonoBehaviour
         // Snap to final position (ground level)
         item.position = end;
     }
+
+    public void ResetChest()
+    {
+        chestLidAnimator.Play("Idle", 0, 0f);
+        animDone = false;
+    }
+    
 }

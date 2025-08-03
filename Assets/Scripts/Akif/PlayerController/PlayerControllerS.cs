@@ -126,7 +126,7 @@ public class PlayerControllerS : MonoBehaviour
         isHit = true;
         animator.SetTrigger("getHit");
 
-        yield return new WaitForSeconds(0.4f); // "getHit" animasyonu süresi kadar
+        yield return new WaitForSeconds(0.4f); // "getHit" animasyonu sï¿½resi kadar
 
         yield return new WaitForSeconds(0.6f);
         isHit = false;

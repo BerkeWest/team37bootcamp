@@ -7,6 +7,17 @@ public class TrapDoor : MonoBehaviour
     [SerializeField] private float moveDistance = 4.15f; 
     [SerializeField] private float moveDuration = 1f; 
     private bool hasMoved = false;
+    private Vector3 wallInitialState;
+    
+    private void Start()
+    {
+        if (wallToMove != null)
+        {
+            wallInitialState = wallToMove.transform.position;
+        }
+        GameObjectManager.Instance?.allTraps.Add(this);
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,4 +44,11 @@ public class TrapDoor : MonoBehaviour
 
         wallToMove.transform.position = endPos;
     }
+
+    public void TrapDoorReset()
+    {
+        hasMoved = false;
+        wallToMove.transform.position = wallInitialState;
+    }
+    
 }

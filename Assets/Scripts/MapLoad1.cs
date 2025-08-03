@@ -50,6 +50,7 @@ public class MapLoad1 : MonoBehaviour
             availableIndices.RemoveAt(randomIndex);
             
             GameObject newEnemy = Instantiate(enemyPrefab, enemySpawnPoints[spawnIndex].position, enemySpawnPoints[spawnIndex].rotation);
+            GameObjectManager.Instance?.spawnedEnemies.Add(newEnemy);
         }
     }
 }
