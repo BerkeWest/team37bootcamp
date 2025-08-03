@@ -1120,8 +1120,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3476917219762509974, guid: dfae0bfbe35b12340824dccb758e1af8, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3476917219762509974, guid: dfae0bfbe35b12340824dccb758e1af8, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -1134,10 +1134,6 @@ PrefabInstance:
     - target: {fileID: 3476917219762509974, guid: dfae0bfbe35b12340824dccb758e1af8, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: menu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3476917219762509974, guid: dfae0bfbe35b12340824dccb758e1af8, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4842760920068167601, guid: dfae0bfbe35b12340824dccb758e1af8, type: 3}
       propertyPath: m_AnchorMax.y

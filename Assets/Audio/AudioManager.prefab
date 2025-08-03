@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4589648533229679250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4959368640111895764}
+  - component: {fileID: 3080298684712571954}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4959368640111895764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4589648533229679250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.6055613, y: -58.705414, z: -73.8442}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3080298684712571954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4589648533229679250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31badb734d0328b46ab48dc0fd3e4c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: 189af6df18da1fb42acce311a2a33175, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: ChestOpen
+    clip: {fileID: 8300000, guid: 59ffd365e0fb7d84fb0de175136ca5c6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoorOpen
+    clip: {fileID: 8300000, guid: 22a7746177050bf4383b6ad44862ee99, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerAttack
+    clip: {fileID: 8300000, guid: 5da138abd20a6914885caccdd8a7d834, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: 0619cb385ad15f3409293bd491bac0af, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDash
+    clip: {fileID: 8300000, guid: bfab25e926b010846a85cda591b75238, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyHit
+    clip: {fileID: 8300000, guid: f7d61e5fb336b4744b5e2739542f1213, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Walk
+    clip: {fileID: 8300000, guid: 4d90166a94bd30a438f577160b650756, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: EnemyAttack
+    clip: {fileID: 8300000, guid: 78ce28e262f38d243813029ff6051369, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AddItem
+    clip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SellItem
+    clip: {fileID: 8300000, guid: a0ca8964c08d54c5dbebf245bdc474ca, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  backgroundMusicName: BackgroundMusic
+  fadeDuration: 1
+  audioMixer: {fileID: 24100000, guid: 1839b7b794d472340b32e92d60e9fbff, type: 2}
+  musicGroupName: Music
+  generalGroupName: General
