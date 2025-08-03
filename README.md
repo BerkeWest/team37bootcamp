@@ -1,5 +1,13 @@
-# Team Name
-Team 37
+<html>
+<body>
+
+![DungeonDebt](bootcampFiles/logoandtitle.png)
+
+# **Team 37 Product Name**
+### **`Dungeon Debt`**
+
+
+# Information About Team and Product
 
 # Team Members
 <table>
@@ -60,13 +68,19 @@ Team 37
   </table>
   
   # Product Description
-  It is a single-player adventure RPG game. In a world full of monsters, you earn your living by hunting and selling the loot of these monsters. With the money you earn by selling these loots, you can upgrade your stats, weapons, and buy items that will assist you in hunting down more and stronger monsters for better loot.
-
+  Dungeon Debt is a single-player adventure RPG game. When we entered a forbidden dungeon, we were taken hostage by a Mage Monster called "The Merchant". Our adventurer must kill enemies and open chests to collect loot and sell it to the merchant to pay off our debt. With the portal created by The Merchant, we can travel to the dungeon or the labyrinth. In these locations, you can slay skeletons, collect keys to unlock treasure rooms, open many chests, and trigger hidden doors.
+  
   # Product Features
   * 3D
   * Single-player
   * Looter
-  * Adventure RPG 
+  * Adventure RPG
+
+ # Target Audience
+ * 7+
+ * Single Player Gamers
+ * Fantasy, Adventure RPG, and Looter Enjoyers
+ * PC Gamers
 
 <details>
     <summary><h1>Sprint 1</h1></summary>
@@ -124,7 +138,7 @@ Team 37
   - **Point Completion Logic:** Every general task has some sub-tasks. We point tasks from 1 to 10 based on how hard or time-consuming they are. Each member gets a task based on their schedule and skill.
 
   - **Sprint Review:**
-    - Lost a lot of valuable time during the first week of the bootcamp while trying to build a system and came up with the project idea.
+    - Lost a lot of valuable time during the first week of the boot camp while trying to build a system and came up with the project idea.
     - Mehmet made progress on the character with the controller and animations.
     - Sude made progress on the inventory system.
     - Berke tested the assets and drafted map ideas.
@@ -141,7 +155,7 @@ Team 37
     - Play button loads scenes using Unity's SceneManager.
     - Continue button enabled conditionally via PlayerPrefs; currently loads placeholder scenes.
     - Scene transitions tested using placeholder scenes; all necessary scenes added to Build Settings.
-    - Settings panel UI is ready but audio/resolution controls pending.
+    - Settings panel UI is ready, but audio/resolution controls are pending.
     - Pause menu not yet implemented; planned for upcoming sprints.
 
   </details>
@@ -205,13 +219,13 @@ Team 37
 
   - **Sprint Review:**
     - Due to pre-determined vacation plans and work/internship conflicts, we lost some time and couldn't finish every task we wanted to.
-    - Berke created our map which has a bunch of features and improving. We could the map and its features to create more maps for the map pool.
+    - Berke created our map, which has a bunch of features and is improving. We could use the map and its features to create more maps for the map pool.
     - Mehmet shşfted the character controller to the State Pattern to better suit our development.
     - Overall, we did reach our point milestone, but we could have made even more progress. We need to be more responsible with the development of our project and try our best to prioritize the essential tasks to deliver a playable game at the end of the bootcamp.
 
   - **Sprint Retrospective:**
     - We need to make more time for the bootcamp.
-    - We need to prioritize some tasks over others to make sure we deliver a playable game by the end of bootcamp.
+    - We need to prioritize some tasks over others to make sure we deliver a playable game by the end of boot camp.
     - We need to be more organized.
     - We need to make sure what type of structure to use before we start the development, to make sure not to lose time on the same tasks.
 
@@ -221,6 +235,109 @@ Team 37
     - This makes transitions more manageable and increases code extensibility and testability.
     - When adding a new behavior, the necessary actions can be performed simply by inheriting from the State base class.
     - Using this system, we've added AttackState, allowing our character to inflict damage.
+</details>
+
+<details>
+    <summary><h1>Sprint 3</h1></summary>
+
+  <details>
+    <summary><h3>Sprint 3 - Game Screenshots</h3></summary>
+  <table style="width: 100%;">
+    <tr>
+      <td colspan="2" style="text-align: center;"><h2>Main Menu</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/mainmenu.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/mainmenubasic (2).png" style="max-width: 100%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;"><h2>Lobby Map</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;"><h2>Dungeon Map</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;"><h2>Labyrinth Map</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;"><h2>Merchant and Sell Mechanic</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/inventory2.png" style="max-width: 100%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;"><h2>Win & Game Over</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/mainmenu.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprint1/gameSS/mainmenubasic (2).png" style="max-width: 100%; height: auto;"></td>
+    </tr>
+  </table>
+  </details>   
+
+  <details>
+    <summary><h3>Sprint 3 - Sprint Board Update Screenshots</h3></summary>
+    <img src="bootcampFiles/sprint1/tasks/1.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/2.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/3.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprint1/tasks/4.jpeg" style="max-width: 100%; height: auto;">
+
+  </details>
+
+  <details>
+    <summary><h3>Sprint 3 - General Tasks and Completion Rates</h3></summary>
+    <img src="bootcampFiles/sprint1/s1general.jpeg" style="max-width: 100%; height: auto;">
+  </details>
+
+  - **Sprint Notes**:
+    - 
+  - **Expected point completion within Sprint:** 50 points
+  - **Actual point completion within Sprint:** 63 points
+  - **Point Completion Logic:** Every general task has some sub-tasks. We point tasks from 1 to 10 based on how hard or time-consuming they are. Each member gets a task based on their schedule and skill.
+
+  - **Sprint Review:**
+    - 
+
+  - **Lobby Development:**
+    - A two floor lobby was created.
+    - Bottom floor contains decors, a training dummy, player spawn point and a portal room to travel through other maps.
+    - Top floor contains a rich merchant area with a large mage skeleton. There is also a prisoner mage to show the merchants evil design.
+    - To win the game, there is a sell zone area around merchant. Here you can open a sell all button in inventory and based on the difficulty, if the gold is enough to pay off debt, you are taken to the win screen.
+    - The lobby portal takes the character into either the dungeon map or the labyrinth map. Based on our teleportation, portal spawns enemies into that maps enemy spawn points randomly. The amount of the enemies are determined by the difficulty settings.
+      
+- **Dungeon Development:**
+    - Dungeon is the small but crowded map.
+    - Chests in the map can be opened once per teleportation and it spawns items for player to collect.
+    - Enemies can be killed to increase our loot.
+    - Both enemies and chests spawn items based on their lootpools. Chests contain more items.
+    - By triggering some torches, trap doors can trigger to unlock more ways to loot.
+    - By collecting the key on the table, players can enter the treasure room for many more loot.
+    - Dungeons portal destroys the enemies left alive, and resets the key, locked door, trap door, and chests.
+
+  - **Labyrinth Development:**
+    - Labyrinth is the large and confusing map.
+    - Due to its large size enemy count is increased. While some rooms are empty some might be full of skeletons.
+    - You need to find the key in the large labyrinth to be able to go to portal room to escape.
+    - Like the dungeon, it also has many chests, a treasure room with trap door and many enemies to kill.
+   
+  - **Sprint Retrospective:**
+    - We left so much work for the last week. For our later projects, we must work harder and not let the deadlines fool us.
+    - Still, we managed to complete a lot of work, and the final product was satisfying.
+
+  </details>
 
   </details>
 
